@@ -1,0 +1,235 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    background-color: rgb(235, 239, 241);
+    height: 730px;
+    width: 1000px;
+
+}
+.header{
+    background-color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.header img{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+.header p{
+    font-size: 70px;
+    color: black;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 15px;
+}
+.header span{
+    color: blue
+}
+.title{
+    background-color: blue;
+    font-size: 40px; 
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.leftnav{
+    color: black;
+    width: 198px;
+    height: 520px;
+    padding-top: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: inline-block;
+    vertical-align: top;
+    
+}
+.red{
+    color: red;
+}
+.blue{
+    color: blue;
+}
+.leftnav p{
+    margin-bottom: 10px;
+    margin-left: 2px;
+}
+.leftnavbottomp{
+    font-size: 12px;
+}  
+.button{
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+    padding: 7px;
+    margin-left: 2px;
+}
+#bluebutton{
+    background-color: blue;
+    margin-bottom: 2px;
+}
+#bluebutton a{
+    text-decoration: none;
+    color: white;
+    margin-left: 35px;
+}
+#orangebutton{
+    background-color: orange;
+}
+#orangebutton a{
+    text-decoration: none;
+    color: white;
+    margin-left: 25px;  
+}
+.leftnav img{
+    width: 196px;
+    height: 235px;
+    margin-left: 2px;
+}
+.leftnavline{
+    margin-left: 2px;
+    background-color: black;
+    border-style: solid;
+    margin-top: 30px;
+    border-width: .5px;
+}
+.ad{
+    background-image: url("ad_background.png");
+    height: 200px;
+    width: 198px;
+    padding: 10px;
+    margin-top: 30px;
+}
+.ad p{
+    font-size: 24px;
+    text-align: center;
+    color: white;
+}
+.ad img{
+    width: 70px;
+    height: 70px;
+    margin-left: 60px;
+}
+#lightbluebutton{
+    margin-left: 40px;
+    background-color: aqua;
+    width: 100px;
+    padding-bottom: 10px;
+}
+#lightbluebutton a{
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+}
+.rightnav{
+    width: 750px;
+    height: 680px;
+    display: inline-block;
+    margin-left: 40px;
+    vertical-align: top;
+}
+.topxbox{
+    height: 30px;
+    width: 750px;
+}
+.home{
+    display: inline-block;
+}
+.home img{
+    height: 20px;
+    width: 20px;  
+    display: inline-block; 
+}
+.home p{
+    color: blue;
+    font-size: 14px;
+    display: inline-block;
+}
+.phoneimg{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    position: relative;
+    left: 500px;
+
+}
+.phoneimg img{
+    height: 30px;
+    width: 30px;
+}
+.phone{
+    display: inline-block;
+    font-size: 8px;
+    color: black;
+    margin-left: 520px;
+    margin-top: 10px;
+    text-align: center;
+}
+.phone h2{
+    color: aqua;
+    font-size: 16px;
+    display: inline-block;
+}
+.rightnavline{
+    margin-left: 10px;
+    background-color: black;
+    border-style: solid;
+    margin-top: 10px;
+    border-width: .5px;
+    width: 700px;
+}
+.middlebox{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.content{
+    height: 300px;
+    width: 750px;
+    font-size: 12px;
+    padding-top: 1px; 
+    padding-bottom: 1px;
+    margin-left: 20px;
+}
+.content h2{
+   color: blue;
+   font-size: 20px; 
+   padding-bottom: 5px;
+}
+.teal{
+    color: teal;
+}
+.bold{
+    font-weight: bolder;
+}
+.content img{
+    width: 300px;
+    padding: 20px;
+    margin-left: 150px;
+}
+.bottombox{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-size: 12px;
+    margin-top: 60px;
+    border-top: 5px solid blue;
+    border-left: 5px solid blue;
+    border-right: 5px solid blue;
+}
+.bottombox img{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    padding: 2px;
+}
+.bottombox h2{
+    color: blue;
+    width: 400px;
+    display: inline-block;
+    position: relative;
+    bottom: 60px;
+    padding:20px;
+}
+.bottombox p{
+    width: 580px;
+    margin-left: 85px;
+    display: inline-block;
+    position: relative;
+    bottom: 60px;
+}

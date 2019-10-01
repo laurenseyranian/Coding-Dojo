@@ -1,0 +1,289 @@
+<script>
+//Question1
+console.log('Question1')
+//give an array
+//loop through all of the numbers
+    //check # is positive
+        //change to big
+//return array
+function biggieSize(arr){
+    for(i=0; i<arr.length; i++){
+        if(arr[i]>0){
+            arr[i]= "big"
+        }
+        return arr
+    }
+}
+</script>
+
+<script>
+//Question2
+console.log('Question2')
+//create a function
+//loop through all of the #
+    //check for lowest and highest #
+//print lowest
+//return highest
+function printLowReturnHigh (arr){
+    var max=arr[0]
+    var min=arr[0]
+    for(i=0; i < arr.length; i++){
+        if(arr[i]< min){
+            arr[i]=min;
+        }
+        if(arr[i]>max){
+            arr[i]=max;
+        }
+    }
+    console.log (max);
+    return min;
+}
+</script>
+
+<script>
+//Question3
+console.log('Question3')
+//build a function
+//loop through all of the numbers
+    //check for 2nd to last value and first odd value
+//print 2nd to last value
+//return first odd value
+
+function printOneReturnAnother (arr){
+    console.log(arr[arr.length-2]);
+    for(i=0; i<arr.length; i++){
+        if(arr[i]%2===1){
+            return arr[i];
+        }
+    }
+}
+</script>
+
+<script>
+//Question4
+console.log('Question4')
+//create a function
+//loop through all numbers
+//double the value of arr[i]
+//push values into new array
+//return new array
+
+function DoubleVision(arr){
+    for(i=0; i<arr.length; i++){
+        value = arr[i]* 2
+        newArr.push(value)
+    }
+    return newArr;
+}
+</script>
+
+<script>
+//Question5
+console.log('Question5')
+//create a function
+//loop through all of the numbers
+    //count postive numbers
+//replace last value with number of positive values
+//return array
+
+function positives (arr){
+    var count = 0;
+    for(i=0; i<arr.length; i++){
+        if(arr[i]<0){
+            count++
+        }
+    }
+    arr[arr.length-1]=count; //where to replace the number of counted numbers
+    return arr;
+}
+</script>
+
+<script>
+//Question6
+console.log('Question6')
+//create a function
+//loop through all numbers
+    //checkfor 3 odd vallues in a row
+    //check for 3 even values in a row
+//print That's odd there there are 3 odd values in a row
+//print Even more so if 3 even values in a row
+
+funtion evenOdd (arr) {
+    evenCount = 0;
+    oddCount = 0;
+    for(i=0; i<arr.length; i++){
+        if(arr[i]%2===0){
+            evenCount++;
+            if(evenCount === 3){
+                console.log("Even more so!");
+            }
+        }
+        else{
+            oddCount++
+            if(oddCount ===3){
+                console.log("That's odd!");
+            }
+        }
+    }
+}
+</script>
+
+<script>
+//Question7
+console.log('Question7')
+//create a function
+//loop through every other number
+    //add 1 to index
+//print array values
+//return array
+
+function incSec (arr){
+    for(i=1; i<arr.length; i++){
+        if(i%2===1){
+            arr[i] += arr[i];
+        }
+        console.log(arr[i]);
+    }
+    return arr;
+}
+var x = [0,4,2,6,-1,-3];
+console.log(incrementSeconds(x));
+</script>
+
+<script>
+//Question8
+console.log('Question8')
+//create a function
+//loop through the array
+//replace string with length of string
+//return array
+
+function prevLength(arr){
+    for(i=0; i<arr.length; i++){
+        arr[i]=arr[i].length;
+    }
+    return arr;
+}
+prevLength(("Lauren", "is", "awesome!"));
+</script>
+
+<script>
+//Question9
+console.log('Question9')
+//create a function
+//loop through array
+//add 7 to each array index
+//return newArr
+
+function add7(arr){
+    for(i = 0; i < arr.length; i++){
+        arr[i] = arr[i] + 7;
+    }
+    return arr;
+}
+add7([2,5,6,8,9]);
+</script>
+
+<script>
+//Question10
+console.log('Question10')
+//create a function
+//loop through array
+//reverse values
+//return array
+
+function reverseArr(arr){
+    temp = 0;
+    for(i=0; i<arr.length/2; i++){
+        temp=arr[i];
+        arr[i]=arr[arr.length-1-i];
+        arr[arr.length-1-i]=temp;
+    }
+    return arr;
+}    
+reverseArr([2,3,6,9,7]);
+</script>
+
+<script>
+//Question11
+console.log('Question11')
+//create a function
+//loop through array
+    //create value negative if positive
+//return new array
+function Negative(arr){
+    var newArr = [];
+    for (var i=0;i<arr.length;i++){
+        if(i<0){
+            newArr[i]= -arr[i];
+        }
+    }
+return newArr;
+}
+
+var x= [1,-3,5];
+console.log(Negative(x));
+</script>
+
+<script>
+//Question12
+console.log('Question12')
+//create a function
+//loop through array
+    //look for food
+//if find value food print yummy
+//else print I'm hungry
+
+function alwaysHungry(arr){
+    var count = 0;
+    for (var i=0;i<arr.length;i++){
+        if (arr[i] == "food"){
+            console.log("yummy");
+                count++;
+        }
+    }
+    if(count==0){
+        console.log("I'm hungry");
+    }
+}
+console.log(alwaysHungry([2, "food", 5, "food", "food"]));
+console.log(alwaysHungry([2, 6, 5, 1]));
+</script>
+
+<script>
+//Question13
+console.log('Question13')
+//create a function
+//loop through the array
+//swap first and last values & third and third to last
+function swap(arr){
+    var count =0;
+    for(i=arr.length-1;i>arr.length/2;i--){
+        var temp = arr[i];
+        arr[i]=arr[count];
+        arr[count]=temp;
+        count++;
+        i--;
+        count++;
+}
+    return arr;
+}
+console.log(swap(["lauren",24,"is",5,"awesome",3,4]));
+</script>
+
+<script>
+//Question14
+console.log('Question14')
+//create a function
+//loop through the array
+//multiply all values in array by number given
+//return changed array  
+
+function scale(arr,num){
+    for(i=0;i<arr.length;i++){
+        arr[i]*=num;
+    }
+    return arr;
+}
+console.log(scale([1, 2, 3],3));
+</script>

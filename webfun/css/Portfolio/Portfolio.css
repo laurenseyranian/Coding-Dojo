@@ -1,0 +1,133 @@
+*{
+    Margin: 0px;
+    Padding: 0px;
+}
+
+#Header{
+    min-height: 30px;
+    background-color: #F6F6F6);
+
+}
+#mainbox{
+    min-height:1000px;
+    background-color: #6F5964;
+    padding:50px;
+}
+.banner{
+    height: 30px;
+    background-color: #9B9AA3;
+    color:white;
+    padding:20px;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size: 35px;
+}
+.banner p{
+    padding-left: 5px;
+    padding-bottom: 9px;
+}
+#level1 img{
+    height: 350px;
+    width: 48%;
+    padding: 10px;
+    background-color: grey;
+    margin-right: 20px;
+}
+#leftnav, #rightnav, .topbox, .bottombox{
+    display: inline-block;
+}
+
+#leftnav{
+    font-family:'Comic Sans MS', 'Comic Sans', 'Marker Felt';
+    padding: 15px;
+}
+
+#leftnav h1{
+    width: 230px;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+
+#rightnav{
+    width: 70%;
+    text-align: right;
+    padding: 15px;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    margin-left: 200px;
+}
+.topbox{
+    height: 370px;
+    width:47%;
+    background-color: rgb(206, 205, 205);
+    margin-right: 30px;
+    margin-bottom: 20px;
+    vertical-align: top;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size: 23px;
+}
+.topbox p, .topbox a{
+    padding: 10px;
+}
+.bottombox{
+    min-height: 1800px;
+    width:32%;
+    background-color: rgb(206, 205, 205);
+    margin-right:20px;
+    vertical-align: top;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+
+.bottombox p{
+    height: 200px;
+    padding: 15px;
+}
+.bottombox img{
+    width: 100%;
+}
+.banner1{  
+    height: 30px;
+    background-color: #9B9AA3;
+    color:white;
+    padding:20px;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size: 35px;     
+}
+.banner1 p{
+    padding-left: 5px;
+    padding-bottom: 9px;
+    height: 400px;
+}
+.icon img{
+    padding: 5%;
+    max-width: 12%;
+}
+.icon{
+    padding: 5px;
+}
+.bottombox input{
+    margin-left: 100px;
+    background-color: #407D61;
+    margin-top: 20px;
+    font-size: 100%;
+    font-weight: bolder;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: white;
+    border-radius: 10px;
+    font-family: "Roboto", Corbel, Avenir, "Lucida Grande", "Lucida Sans", sans-serif;
+}
+#footer {
+    font-weight: bolder;    
+    min-height: 50px;
+    background-color: rgb(196, 196, 196);
+    text-align: center;
+    font-family: "Roboto", Corbel, Avenir, "Lucida Grande", "Lucida Sans", sans-serif;
+}
+#footer img{
+    width:20px;
+}
+#footer p{
+    margin-bottom: 15px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Disappearing Ninja</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="disappearingninja.css">
+    
+    <script>
+        $(document).ready(function(){
+            $('img').click(function(){
+                $(this).hide('slow');
+            });
+            $('button').click(function(){
+                $('img').show('slow');
+            });
+         });
+    </script>
+</head>
+<body>
+    <div class="container col-8">
+        <hr class='my-4'>
+        <h1>Meet The Office</h1>
+        <img src="angela.jpg" alt="error">
+        <img src="kevin.jpg" alt="error">
+        <img src="michael.jpg" alt="error">
+        <img src="pam.jpg" alt="error">
+        <img src="stanley.jpg" alt="error">
+        <img src="dwight.jpg" alt="error">
+        <img src="toby.jpg" alt="error">
+        <img src="stanley.jpg" alt="error">
+        <button type="button" class="btn btn-outline-dark">Reload</button>
+    </div>
+</body>
+</html>

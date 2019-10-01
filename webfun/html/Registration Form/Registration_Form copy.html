@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Form</title>
+    </head>
+    <body>
+        <h1>My Registration Form</h1>
+        <form action="RegistrationForm.php" method="post">
+            <div>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name">
+             </div> 
+             <div>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="Last_name">  
+             </div>  
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email">
+             <div>
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password">
+            </div>
+            <div>
+                <label for="password confirm">Password Confirm</label>
+                <input type="text" id="password cofirm" name="Password Confirm">
+            </div>
+            <div>
+                <label for="birthday">Birthday</label>
+                <input type="text" id="month" name="Month">
+                <input type="text" id="day" name="Day">
+                <input type="text" id="year" name="Year">
+            </div>
+            <div>
+                <select name="Gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="decline">Prefer Not To Say</option>
+                </select>
+            </div>
+            <div>
+                <textarea name="description"></textarea>
+            </div>
+            <div>
+                <select name="Language">
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="c++">C++</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </body>
+</html>

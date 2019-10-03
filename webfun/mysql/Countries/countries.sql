@@ -1,1 +1,0 @@
-SELECT * FROM countries.name, language.language, 

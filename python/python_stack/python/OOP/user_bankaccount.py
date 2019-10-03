@@ -32,7 +32,7 @@ class User:
         return self
     
     def display_user_balance(self):
-        self.account.display_account_info()
+        self.account.display_account_info() 
         return self
 
 

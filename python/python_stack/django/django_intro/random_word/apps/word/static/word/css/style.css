@@ -1,0 +1,12 @@
+*{
+    Margin: 0px;
+    Padding: 0px;
+}
+body{
+    background-image: url("../images/consonants.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+.jumbotron{
+    background-color: rgba(244, 165, 96, 0.721);
+}

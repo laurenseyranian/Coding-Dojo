@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Playground</title>
+<style>
+body {
+  width: 1000px;
+  height: 1000px;
+  background-color: pink;
+}
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25.5px;
+    padding: 10px;
+    margin-top: 50px;
+    margin-left: 470px;
+    color: blueviolet;
+    border: solid rgb(194, 247, 0) 10px;
+}
+.box1{
+    background-color: {{color}};
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    position: relative;
+    left: 250px;
+    margin: 50px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Welcome to Lauren's Playground!</h1>
+    {% for i in range(0,number)%}
+    <div class = "box1"></div>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'word/css/style.css' %}">
+
+    <title>Random Word Generator</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container" align="center">
+            <div class="jumbotron col-8">
+                <h1 class="display-4">Random Word Generator</h1>
+                <p class="lead">This is a simple random word generator.</p>
+                <p class="lead">Click generate to get started.</p>
+                <p class="lead">We will keep track of how many random words you generate.</p>
+                <p class="lead">Click reset to start the count over.</p>
+                <hr class="my-4">
+                <p class="form-control col-6" >{{random_word}}</p>
+                <p class="form-control col-6" >Random Word (attempt # {{        request.session.counter }}) </p>
+                <a class="btn btn-success" href="/">Generate</a>
+                <a class="btn btn-info" href="/reset">Reset</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

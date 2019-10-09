@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Gold</title>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+                <a class="btn btn-primary" href="/" role="button">Play Again</a>
+            <div class="points">
+                <p>Your Gold: </p>
+            </div>
+            <div class="jumbotron">
+                <h1 class="display-4">Farm</h1>
+                <p class="lead">(earns 10-20 golds)</p>
+                <form action="/process" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-primary" type="submit">Find Gold!</button>
+                </form>
+            </div>
+            <div class="jumbotron">
+                <h1 class="display-4">Cave</h1>
+                <p class="lead">(earns 5-10 golds)</p>
+                <form action="/process" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-primary" type="submit">Find Gold!</button>
+                </form>
+            </div>
+            <div class="jumbotron">
+                <h1 class="display-4">House</h1>
+                <p class="lead">(earns 2-5 golds)</p>
+                <form action="/process" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-primary" type="submit">Find Gold!</button>
+                </form>
+            </div>
+            <div class="jumbotron">
+                <h1 class="display-4">Casino</h1>
+                <p class="lead">(earns 0-50 golds)</p>
+                <form action="/process" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-primary" type="submit">Find Gold!</button>
+                </form>
+            </div>
+            <div class="activities">
+                <p>Activities:</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

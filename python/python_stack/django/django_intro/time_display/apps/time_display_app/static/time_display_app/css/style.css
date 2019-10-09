@@ -1,0 +1,46 @@
+*{
+    Margin: 0px;
+    Padding: 0px;
+}
+.container{
+    width: 100%;
+    border: solid black 10px;
+}
+.img{
+    background-image: url("../images/flag.png");
+    position: relative;
+    height: 100vh;
+}
+.img:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(202, 201, 201, 0.7);
+}
+.text{
+    color: black;
+    position: relative;
+    margin-left: 470px;
+    padding-top: 180px;
+}
+.text h1, h4, h5{
+    border: solid black 3px;
+    width: 430px;
+    padding-left: 50px;
+
+}
+.time{
+    border: solid black 3px;
+    width: 430px;
+    padding-left: 25px;
+}
+.text h1{
+    padding-left: 47px;
+}
+.text h4{
+    text-align: center;
+}
+

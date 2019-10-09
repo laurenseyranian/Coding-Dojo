@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Checkerboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Let's Play Checkers!</h1>
+        {% for i in range(0,x) %}
+        <div class="row">
+            {% for j in range(0,y) %}
+            <div class=" square {% if (i+j)%2==1 %} color1 {% else %} color2 {% endif %}"></div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

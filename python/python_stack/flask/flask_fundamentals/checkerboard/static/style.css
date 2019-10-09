@@ -1,0 +1,25 @@
+.container{
+    width: 1150px;
+    height: 1090px;
+    background-color: lightgreen;
+    text-align: center;
+    border: solid 5px rgb(218, 193, 160);
+    border-radius: 10px;
+}
+h1{
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(218, 193, 160);
+}
+.square{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+.color1{
+    background-color: aquamarine;
+    
+}
+.color2{
+    background-color: plum;
+}

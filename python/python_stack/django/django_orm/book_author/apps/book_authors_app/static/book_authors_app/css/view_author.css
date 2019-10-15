@@ -1,0 +1,26 @@
+body{
+    background-image:url(../images/pexels-photo-58457.jpg);
+    background-size: 1450px 800px;
+    background-repeat: no-repeat;
+}
+.box{
+    margin-top: 70px;
+    margin-left: 70px;
+    background-color: rgb(56, 38, 11);
+    width: 400px;
+    height: 550px;
+    color: wheat;
+    border-radius: 10px;
+    border: solid rgb(224, 27, 70) 15px;
+    padding: 20px;
+}
+.name{
+    font-size: 40px;
+    font-weight: bolder;
+}
+.btn{
+    background-color: rgb(224, 27, 70);
+}.for{
+    margin-left: 80px;
+    background-color: rgb(224, 27, 70);
+}

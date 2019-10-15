@@ -1,0 +1,20 @@
+body{
+    background-image:url(../images/Empty_book.jpg);
+    background-size: 1450px 750px;
+    background-repeat: no-repeat;
+}
+.box{
+    margin-top: 70px;
+    margin-left: 70px;
+    background-color: maroon;
+    width: 400px;
+    height: 550px;
+    color: wheat;
+    border-radius: 10px;
+    border: solid navy 15px;
+    padding: 20px;
+}
+.name{
+    font-size: 40px;
+    font-weight: bolder;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tv_shows_app/css/add_show.css' %}">
+
+    <title>Semi-Restful TV Shows</title>
+</head>
+<body>
+    <div class="container">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="jumbotron jumbotron-fluid">
+            <a class="btn btn-primary" href="/shows">Home</a>
+            <h1 class="display-4">Edit Show {{tv_show.id}}
+                <form action="/shows/{{tv_show.id}}/edit" method="POST">
+                    {% csrf_token %}
+                    <label for="formGroupExampleInput">Title</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder=""name="title">
+                    <label for="formGroupExampleInput2">Network</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder=""name="network">
+                    <label for="formGroupExampleInput2">Release Date</label>
+                    <input type="date" class="form-control" id="formGroupExampleInput2" placeholder=""name="release_date">
+                    <label for="exampleFormControlTextarea1">Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"name="description"></textarea>
+                    <button type="submit">Update</button>
+                </form>
+            <a class="btn btn-primary" href="/shows/{{tv_show.id}}">Go to show</a>
+        </div>
+
+<!-- end of container -->
+    </div>
+</body>
+</html>

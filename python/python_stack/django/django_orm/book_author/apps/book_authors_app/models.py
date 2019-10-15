@@ -10,7 +10,7 @@ class Book(models.Model):
         return f"Title: {self.title}, Description: {self.desc}"
 
 class Author(models.Model):
-    book = models.ManyToManyField(Book, related_name="author")
+    books = models.ManyToManyField(Book, related_name="authors")
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
     notes = models.TextField ()

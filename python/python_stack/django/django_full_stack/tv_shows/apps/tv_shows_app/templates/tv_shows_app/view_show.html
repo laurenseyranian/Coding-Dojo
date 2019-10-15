@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tv_shows_app/css/add_show.css' %}">
+
+    <title>Semi-Restful TV Shows</title>
+
+</head>
+<body>
+    <div class="container">
+        <a class="btn btn-primary" href="/shows"></a>
+        <div class="jumbotron jumbotron-fluid">
+            <p class="display-4">ID: {{tv_show.id}}</p>
+            <hr class="my-4">
+            <p class="lead">Title: {{tv_show.title}}</p>
+            <p class="lead">Network: {{tv_show.network}}</p>
+            <p class="lead">Release Date: {{tv_show.release_date}}</p>
+            <p class="lead">Description: {{tv_show.description}}</p>
+            <p class="lead">Last Updated: {{tv_show.updated_at}}</p>
+            <hr class="my-4">
+            <a class="btn btn-primary" href="/shows/{{tv_show.id}}/edit">Edit</a>
+            <a class="btn btn-primary" href="/shows/{{tv_show.id}}/delete">Delete</a>
+                
+        </div>
+
+    </div>
+</body>
+</html>

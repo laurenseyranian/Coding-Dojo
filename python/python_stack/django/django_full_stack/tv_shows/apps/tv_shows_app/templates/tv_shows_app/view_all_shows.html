@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tv_shows_app/css/add_show.css' %}">
+
+    <title>Semi-Restful TV Shows</title>
+</head>
+
+<body>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Network</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tv_show in all_shows %}
+                <tr>
+                        <td>{{tv_show.id}}</td>
+                        <td>{{tv_show.title}}</td>
+                        <td>{{tv_show.network}}</td>
+                        <td>{{tv_show.release_date}}</td>
+                        <td>
+                            <a href="/shows/{{tv_show.id}}" name="show">Show</a>
+                            <a href="/shows/{{tv_show.id}}/edit" name="edit">Edit</a>
+                            <a href="/shows/{{tv_show.id}}/delete" name="delete">Delete</a>
+                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/shows/new" name="show" value="Show"></a>
+
+    <!-- end of container -->
+    </div>
+</body>
+</html>

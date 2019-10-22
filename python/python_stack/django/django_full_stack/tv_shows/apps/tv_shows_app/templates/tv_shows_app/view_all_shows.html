@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     {% load static %}
-    <link rel="stylesheet" href="{% static 'tv_shows_app/css/add_show.css' %}">
+    <link rel="stylesheet" href="{% static 'tv_shows_app/css/view_all_show.css' %}">
 
     <title>Semi-Restful TV Shows</title>
 </head>
 
 <body>
     <div class="container">
-        <table class="table">
+        <a class="btn btn-secondary mt-4 mb-4" href="/shows/new">Add New Show</a>
+        <table class="table col-10">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
@@ -33,9 +34,9 @@
                         <td>{{tv_show.network}}</td>
                         <td>{{tv_show.release_date}}</td>
                         <td>
-                            <a href="/shows/{{tv_show.id}}" name="show">Show</a>
-                            <a href="/shows/{{tv_show.id}}/edit" name="edit">Edit</a>
-                            <a href="/shows/{{tv_show.id}}/delete" name="delete">Delete</a>
+                            <a class="btn btn-secondary" href="/shows/{{tv_show.id}}" name="show">Show</a>
+                            <a class="btn btn-secondary" href="/shows/{{tv_show.id}}/edit" name="edit">Edit</a>
+                            <a class="btn btn-secondary" href="/shows/{{tv_show.id}}/delete" name="delete">Delete</a>
                         </td>
                 </tr>
                 {% endfor %}

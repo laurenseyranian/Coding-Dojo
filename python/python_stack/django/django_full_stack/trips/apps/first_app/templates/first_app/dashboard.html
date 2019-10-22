@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- {% load static %}
+    <link rel="stylesheet" href="{% static 'first_app/css/style_success.css' %}">  -->
+
+    <title>Favorite Books</title>
+
+</head>
+<body>
+<div class = "container">
+{% if messages %}
+    <div class="alert">
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <div class="alert alert-success alert-dismissable">
+                <a href='' class="close" data-dismiss='alert' aria-label='close'>x</a>
+                {{ message }}
+            </div>
+        {% else %}
+            <ul class="messages"> 
+                {% for message in messages %}
+                    <li class="list-group-item list-group-item-danger" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endif %}
+    <div class="header mt-5">
+        <div class="row">
+            <div class="col">
+                <h4>Welcome {{ user.first_name }} </h4>
+            </div>
+            <div clas = "col">
+                <a class="btn btn-success" href="/add_trip">Add Trip</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-danger" href="/logout">Log Out</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="body mt-5">
+        <h3>Your Trips:</h3>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Plan</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trips in trips %}
+                <tr>
+                    <td><a href="/trip/edit/{{trips.id}}">{{ trips.destination }}</a></td>
+                    <td>{{ trips.start_date }}</td>
+                    <td>{{ trips.end_date }}</td>
+                    <td>{{ trips.plan }}</td>
+                    <td>
+                        <a class="btn btn-secondary" href="/trips/{{trip.id}}" name="show">Show</a>
+                        <a class="btn btn-secondary" href="/trips/{{trips.id}}/edit" name="edit">Edit</a>
+                        <a class="btn btn-secondary" href="/tripss/{{trips.id}}/delete" name="delete">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="list-group">
+                    {% for all_trips in add_trip %}
+                    <div class="col destination">
+                        <a href="/book_details/{{b.id}}" class="mb-1">{{ b.title }}</a>
+                    </div>
+                        <a href="/book_details/{{b.id}}" class="mb-1">{{ b.title }}</a>
+
+                        <p>(added by {{ b.uploaded_by.first_name }} {{ b.uploaded_by.user.last_name }}) </p>    
+                            {% if user in b.users_who_favorited.all %}
+                                <p>This is one of your favorites.</p>
+                            {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<!-- end of container -->
+    </div>
+</body>
+</html>

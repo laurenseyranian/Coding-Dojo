@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'first_app/css/style_book_details.css' %}"> 
+
+    <title>Favorite Books</title>
+
+</head>
+<body>
+    <div class="header">
+            <h1>Welcome {{ user.first_name }}<span class="float-right"> <a href="/logout">Log Out</a></span></h1>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <p>{{ this_book.title }}</p>
+            <p>Added by: {{ user.first_name }} {{ user.last_name }}</p>
+            <p>Added on: {{ this_book.created_at }}</p>
+            <p>Last Updated on {{ this_book.updated_at }}</p>
+            <p>Description:{{ this_book.description }}</p>
+        </div>
+
+        <div class = "col-5">
+            <h3>Users Who Like this Book</h3>
+                {% for user in this_book.users_who_favorited.all %}                      
+                {{ user.first_name }} 
+                {{ user.last_name }}   
+                {% endfor %}
+
+        </div>
+    </div>
+</body>
+</html>

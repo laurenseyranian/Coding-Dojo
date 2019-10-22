@@ -1,0 +1,28 @@
+.jumbotron{
+    margin-left: 250px;
+    background-color: mediumaquamarine;
+}
+body{
+    background-color: lightyellow;
+}
+a{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.moveLeft{
+    margin-left: 380px;
+}
+.Moveleft{
+    margin-left: 200px;
+}
+.display-4{
+    text-align: center;
+}
+#formGroupExampleInput, #formGroupExampleInput1, #formGroupExampleInput3, #formGroupExampleInput2{
+    width: 200px;
+    margin-left: 20px;
+}
+#exampleFormControlTextarea1{
+    width: 400px;
+    margin-left: 20px;
+}

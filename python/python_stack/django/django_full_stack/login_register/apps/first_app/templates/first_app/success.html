@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'first_app/css/style2.css' %}"> 
+
+    <title>Login and Register Assignment</title>
+
+</head>
+<body>
+    <div class = "container">
+        {% if messages %}
+        <ul class="messages"> 
+            {% for message in messages %}
+                <li class="list-group-item list-group-item-success" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="success">
+            <h1 class="display-4 mt-2">SUCCESS!</h1>
+            <p class="lead">Welcome, {{ first_name }}</p>
+            <a class="btn btn-dark btn-lg" href="/logout" role="button">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <title>Trivia Game</title>
+
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            $("input").click(function () {
+                console.log("Trivia Game")
+
+                $.get("https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple", triviaQuestion)
+                function triviaQuestion(data) {
+                    var trivia = ""
+                    for(i in data.results){
+                        console.log(data.results[i]);
+                        trivia += "<p>" + data.results[i].question + "</p>"
+                        trivia += "<select>"
+                        trivia += "<option>" + data.results[i].correct_answer + "</option>"
+                        for(j in data.results[i].incorrect_answers){
+                            trivia += "<option>" + data.results[i].incorrect_answers[j] + "</p>"
+                        }
+                        trivia += "<select>"
+                        $(".display").html("<div>"+trivia+"</div>")
+                    }
+                }
+            })
+        })
+    </script>
+    <input type="button" class="btn btn-success" value="Submit">
+   <div class="display"></div>
+
+</body>
+</html>

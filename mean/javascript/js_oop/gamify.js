@@ -80,7 +80,7 @@ function move(direction) {
         return "You cannot go " + direction;
     }else{
         player.location = player.location[direction];
-        console.log("You are now at " + player.location.character + "house");
+        console.log("You are now at " + player.location.character + " house");
         player.location.greet();
         }
     }

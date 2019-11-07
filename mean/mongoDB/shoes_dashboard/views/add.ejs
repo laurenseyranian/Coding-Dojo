@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Shoes Dashboard</title>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container col-8">
+            <h1 class="display-4 text-center">Add a Shoe to the Pack</h1>
+            <p class=" lead text-center">Please complete ALL of the fields below to add a shoe. Thank you!</p>
+            <hr class="my-4">
+            <form action="/new" method="post">
+                <% if(messages.shoe) { %>
+                    <% for (var x of messages.shoe) { %>
+                        <h3 class="list-group-item list-group-item-danger"><%= x %></h3>
+                    <% } %>
+                <% } %>
+                <label>Brand:</label>
+                <input class="form-control" type="text" placeholder="Brand" name="brand">
+                <label>Color:</label>
+                <input class="form-control" type="text" placeholder="Color" name="color">
+                <label>Size:</label>
+                <input class="form-control" type="text" placeholder="Size" name="size">
+                <label>Description:</label>
+                <input class="form-control mb-5" type="text" placeholder="Description" name="description">
+                <input type="submit" class="btn btn-info" value="Add Shoe">
+                <a href="/index" class="btn btn-info">Back to the pack</a>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

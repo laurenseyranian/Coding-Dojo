@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script   src="http://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   crossorigin="anonymous"></script>
+    <title>Ninja Class 1</title>
+</head>
+
+<body>
+    <script>
+        function Ninja(name, health) {
+            this.name = name;
+            this.health = health;
+
+            var privateSpeed = 3;
+            var privateStrength = 3;
+
+
+            this.sayName = function () {
+                console.log("My name is " + this.name);
+            }
+
+            this.showStats = function () {
+                console.log("Name: " + this.name + ", " + " Health: " + this.health + ", " + " Speed: " + privateSpeed + ", " + "Strength: " + privateStrength) + ".";
+
+            }
+            this.drinkSake = function () {
+                this.health += 10;
+                return this
+            }
+            this.punch = function (opponent) {
+                if (opponent instanceof Ninja){
+                    opponent.health -= 5;
+                    console.log(opponent.name + " " + "was punched by" +  " " + this.name + " " + "and lost 5 Health points!");
+                }else{
+                    console.log("An opponent doesn't exist.")
+                }
+            }
+            this.kick = function (opponent){
+                if (opponent instanceof Ninja){
+                    opponent.health -= (15 * (privateStrength))
+                    console.log(this.name + " " + "kicked " + opponent.name)
+                }else{
+                    console.log("An opponent doesn't exist.")
+                }
+            }
+            return this.showStats();
+        }
+        var ninja1 = new Ninja ("Lauren", 100);
+        var ninja2 = new Ninja ("Bryce", 100)
+
+        ninja1.sayName();
+        ninja1.showStats();
+
+        ninja2.sayName();
+        ninja2.showStats();
+
+        ninja1.sayName();
+        ninja1.drinkSake();
+        ninja1.showStats();
+
+        ninja1.punch(ninja2);
+        ninja1.showStats();
+        ninja2.showStats();
+
+        ninja1.kick(ninja2);
+        ninja1.showStats();
+        ninja2.showStats();
+
+    </script>
+</body>
+
+</html>

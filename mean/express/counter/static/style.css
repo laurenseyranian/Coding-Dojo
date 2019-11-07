@@ -1,0 +1,14 @@
+.container {
+    text-align: center;
+    margin-top: 200px;
+}
+
+body {
+    background-image: url("/count.jpg");
+    background-repeat: repeat;
+    background-color: #cccccc;
+}
+
+p, .counter{
+    color: lightcoral;
+}

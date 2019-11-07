@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deck of Cards</title>
+</head>
+
+<body>
+    <script>
+        var suit = {
+            1: "Heart",
+            2: "Spade",
+            3: "Club",
+            4: "Diamond"
+        }
+        var value = {
+            1: "Ace",
+            2: "Two",
+            3: "Three",
+            4: "Four",
+            5: "Five",
+            6: "Six",
+            7: "Seven",
+            8: "Eight",
+            9: "Nine",
+            10: "Ten",
+            11: "Jack",
+            12: "Queen",
+            13: "King",
+        }
+        var number = {
+            1: 1,
+            2: 2,
+            3: 3,
+            4: 4,
+            5: 5,
+            6: 6,
+            7: 7,
+            8: 8,
+            9: 9,
+            10: 10,
+            11: 11,
+            12: 12,
+            13: 13
+        }
+        class Card {
+            constructor(suit, value, number) {
+                this.suit = suit;
+                this.value = value;
+                this.number = number;
+            }
+            show() {
+                console.log(`Suit: ${this.suit}, Value: ${this.value}, Number: ${this.number}`);
+            }
+        }
+        class Deck {
+            constructor() {
+                this.cards = [];
+                for (var i = 1; i < 5; i++) {
+                    for (var j = 1; j < 14; j++) {
+                        var card = new Card(suit[i], value[j], number[j]);
+                        this.cards.push(card);
+                    }
+                }
+            }
+            shuffle() {
+                var mix = this.cards.length, t, i;
+                while (mix) {
+                    i = Math.floor(Math.random() * mix--);
+                    t = this.cards[mix];
+                    this.cards[mix] = this.cards[i];
+                    this.cards[i] = t;
+                }
+                return this.card;
+            }
+            reset() {
+                var count = 0;
+                for (var i = 1; i < 5; i++) {
+                    for (var j = 1; j < 14; j++) {
+                        var card = new Card(suit[i], value[j], number[j]);
+                        this.cards[count] = card;
+                        card.show();
+                        count++
+                    }
+                }
+            }
+            deal() {
+                return this.cards.pop();
+                console.log(player.hand)
+            }
+        }
+        class Player {
+            constructor(name) {
+                this.name = name;
+                this.hand = [];
+            }
+            takecard(deck){
+                this.hand.push(deck.deal());
+                console.log(this.hand);
+            }
+            discardcard(){
+                this.hand.pop();
+                console.log(this.hand);
+            }
+        }
+        var game = new Deck()
+        var player = new Player("Lauren")
+
+        console.log(game.cards)
+        console.log(game.cards.suit);
+        console.log(game.shuffle());
+        console.log(game.reset());
+        console.log(player.name);
+        player.takecard(game);
+        player.takecard(game);
+        player.takecard(game);
+        player.discardcard(game);
+        console.log(game.cards);
+        
+
+
+    </script>
+</body>
+
+</html>

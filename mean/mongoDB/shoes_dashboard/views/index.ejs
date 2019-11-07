@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Shoes Dashboard</title>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center text-primary">Welcome to the Shoe Pack!</h1>
+            <p class="lead text-center text-primary">Enjoy our amazing Pack members listed below.</p>
+            <div class="nav float-right mb-3">
+                <a href='/new' class='btn btn-secondary'>Add Shoe</a>
+            </div>
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (var shoe of shoes){ %>
+                    <tr>
+                        <td><%= shoe.brand %></td>
+                        <td><%= shoe.color %></td>
+                        <td><%= shoe.size %></td>
+                        <td><%= shoe.description %></td>
+                        <td><a href='/edit/<%= shoe.id %>' class='btn btn-success mr-2'>Edit</a><a href='/view/<%= shoe.id %>' class='btn btn-primary mr-2'>View</a><a href='/destroy/<%= shoe.id %>' class='btn btn-danger mr-2'>Delete</a></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

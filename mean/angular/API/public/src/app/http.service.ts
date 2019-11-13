@@ -9,6 +9,7 @@ export class HttpService {
    getPokemon() {
       let mew = this._http.get('https://pokeapi.co/api/v2/pokemon/mew/');
       mew.subscribe(data =>{
+         console.log( "Name" , data.name)
          console.log( "Data" , data)
          console.log("Height" , data.height)
          console.log("Stats" , data.stats)

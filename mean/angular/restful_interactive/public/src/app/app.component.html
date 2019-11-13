@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Restful Interactive</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Lauren's To Do List:</h1>
+    <ol>
+      <button class="btn btn-warning mt-5 mb-5" (click)="allTasks()">ALL TASKS!</button>
+      <li *ngFor="let task of tasks">{{ task.title }} <button class="btn btn-danger"
+          (click)="showTask(task)">SHOW</button></li>
+      <h4 *ngIf="oneTask">
+        <div class='description mt-5'>
+          <p>{{oneTask.title}} - {{oneTask.description}} {{oneTask.complete}}</p>
+        </div>
+      </h4>
+      </ol>
+  </div>
+
+</body>
+
+</html>

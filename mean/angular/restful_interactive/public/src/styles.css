@@ -1,0 +1,45 @@
+body{
+    background-color: whitesmoke;
+}
+.container{
+    border: 5px rgb(29, 80, 33) solid;
+    height: 1000px;
+    width: 1000px;
+}
+h1{
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    color: tomato;
+    margin-top: 10px;
+    font-size: 50px;
+}
+.btn-warning{
+    margin-left: 390px;
+    font-family: 'Indie Flower', cursive;
+    color: white;
+}
+.btn-danger{
+    margin-left: 300px;
+    font-family: 'Indie Flower', cursive;
+    color: white;
+    border-radius: 70%;
+    margin-top: 10px;
+}
+li{
+    font-family: 'Indie Flower', cursive;
+    color: rgb(45, 40, 30);
+    font-size: 35px;
+}
+p{
+    font-family: 'Indie Flower', cursive;
+    color: rgb(221, 77, 77);
+    font-size: 35px;
+    width: 800px;
+    height: 150px;
+    border: 5px rgb(29, 80, 33) solid;
+    padding: 25px;
+    font-weight: bolder;
+}
+.description{
+    text-align: center;
+}

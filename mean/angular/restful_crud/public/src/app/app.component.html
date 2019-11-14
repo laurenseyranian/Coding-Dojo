@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Restful Interactive</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Lauren's To Do List:</h1>
+    <div class="create mb-5">
+      <h3>Add a New Task</h3>
+      <form (submit)="createOneTask()">
+        <h4>Title <input class="col-9" type="text" name="task.title" [(ngModel)]="task.title" /></h4>
+        <h4>Description <input class="col-8" type="text" name="task.description" [(ngModel)]="task.description" /></h4>
+        <h4>Complete <input class="col-8" type="text" name="task.complete" [(ngModel)]="task.complete" /></h4>
+        <input class="btn btn-success" type="submit" value="ADD" />
+      </form>
+    </div>
+    <div class="all">
+      <ol>
+        <li *ngFor="let task_here of tasks"> {{task_here.title}}
+          <button class="btn btn-warning ml-3" (click)="showEditForm(task_here)">EDIT</button>
+          <button class="btn btn-dark ml-3" (click)="viewOneTask(task_here)">SHOW</button>
+          <button class="btn btn-danger ml-3" (click)="deleteOneTask(task_here)">DELETE</button>
+          <form (submit)="updateOneTask(task_here)" *ngIf="task_here.showEditForm">
+              <h4>Title <input class="col-8" type="text" name="task_here.title" [(ngModel)]="task_here.title" /></h4>
+              <h4>Description <input class="col-8" type="text" name="task_here.description" [(ngModel)]="task_here.description" /></h4>
+              <h4>Complete <input class="col-8" type="text" name="task_here.complete" [(ngModel)]="task_here.complete" /></h4>
+              <input class="btn btn-success" type="submit" value="UPDATE" />
+            </form>
+        </li>
+      </ol>
+      <div *ngIf="showTask" class="show">
+          <p class="title">{{showTask.title}}</p>
+          <p>Description: {{showTask.description}}</p>
+          <p>Complete: {{showTask.complete}}</p>
+          <p>{{showTask.createdAt | date: "medium"}}</p>
+          <p>{{showTask.updatedAt |  date: "medium" }}</p>
+          <button class="btn btn-primary mt-3" (click)="close()">CLOSE</button>
+        </div>
+    </div>
+
+<!-- end of container -->
+  </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+body {
+  background-color: whitesmoke;
+}
+
+.container {
+  border: 5px rgb(29, 80, 33) solid;
+  height: 2000px;
+  width: 2000px;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  color: rgb(255, 99, 71);
+  margin-top: 10px;
+  font-size: 50px;
+  font-weight: bolder;
+  text-shadow: 5px 5px 10px #DC3545;
+}
+.boolean{
+    text-transform: uppercase
+}
+/*************************************************************************/
+.create {
+  border: 5px rgb(29, 80, 33) solid;
+  font-family: 'Indie Flower', cursive;
+  font-size: 35px;
+  padding: 25px;
+  width: 800px;
+  height: 310px;
+  margin-left: 150px;
+}
+
+h3 {
+  text-align: center;
+  color: tomato;
+  margin-top: 10px;
+  font-size: 40px;
+  text-shadow: 2px 2px #DC3545;
+}
+
+h4 {
+  font-weight: bolder;
+}
+
+.btn-info {
+  margin-top: 20px;
+  font-family: 'Indie Flower', cursive;
+  color: white;
+}
+
+#close {
+  margin-top: 20px;
+  font-family: 'Indie Flower', cursive;
+  color: white;
+  margin-left: 700px;
+}
+
+/*************************************************************************/
+.show1 {
+  border: 5px rgb(29, 80, 33) solid;
+  font-family: 'Indie Flower', cursive;
+  font-size: 25px;
+  padding: 25px;
+  width: 600px;
+  height: 345px;
+  margin-left: 110px;
+  margin-bottom: 20px;
+  color: rgb(73, 39, 83);
+}
+
+.title {
+  font-weight: bolder;
+  font-size: 50px;
+  text-align: center;
+  border-bottom: 3px rgb(73, 39, 83) solid;
+  text-shadow: 5px 5px 10px  #492753;
+}
+
+/*************************************************************************/
+.all {
+  border: 5px rgb(29, 80, 33) solid;
+  font-family: 'Indie Flower', cursive;
+  font-size: 35px;
+  padding: 25px;
+  width: 900px;
+  height: 1530px;
+  margin-left: 100px;
+  color: tomato;
+}
+#all{
+    text-shadow: 2px 2px #DC3545;
+}
+
+.btn-warning {
+  font-family: 'Indie Flower', cursive;
+  color: white;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.btn-danger {
+  font-family: 'Indie Flower', cursive;
+  color: white;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.btn-dark {
+  font-family: 'Indie Flower', cursive;
+  color: white;
+  display: inline-block;
+  vertical-align: top;
+}

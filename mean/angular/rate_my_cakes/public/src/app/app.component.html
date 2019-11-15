@@ -1,0 +1,33 @@
+<div class="welcome">
+  <h1>Bake A Cake And Get A Rate</h1>
+</div>
+
+<div class="addCake">
+  <h4>Submit a Cake to be Rated</h4>
+  <form (submit)="create_cake()">
+    <h4>Baker Name: <input class="col-6" type="text" name="name" [(ngModel)]="newCake.name" /></h4>
+    <h4>Image URL: <input class="col-8" type="text" name="image" [(ngModel)]="newCake.image" /></h4>
+    <input class="btn btn-warning" type="submit" value="SUBMIT" />
+  </form>
+</div>
+
+<div class="allCakes">
+  <div *ngFor="let allcakes of cake">
+    <img src="{{ cake.image }}" alt="error">
+    <form (submit)="createOneRating(cake)">
+      <select name="rating" [(ngModel)]='allcakes.newRating.rating' class="form form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment" [(ngModel)]="allcakes.newRating.comment"></textarea>
+      <input class="btn btn-primary" type="submit" value="RATE">
+    </form>
+  </div>
+</div>
+
+<div class="oneCake">
+
+</div>

@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const CakeSchema = new mongoose.Schema({
-    name: { type: String, required: true, minlength: 2 },
-    image: { type: String, required: true, minlength: 2 },
+    name: { type: String, default: "" },
+    image: { type: String, default: "" },
+    avgRating : { type: Number, default: 0},
     ratings: [{
-            rating: { type: Number, required: true, max: 5 },
-            comment: { type: String, required: true, minlength: 2 },
+            rating: { type: Number, default: 0 },
+            comment: { type: String, default: "" },
         }],
 }, { timestamps: true });
 

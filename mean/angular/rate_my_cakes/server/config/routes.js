@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const cakes = require('../controller/cakes.js')
 Cake = mongoose.model('Cake');
+const cakes = require('../controller/cakes.js')
 
 module.exports = function(app) {
 
@@ -10,7 +10,7 @@ module.exports = function(app) {
 
     app.post('/create_rating/:id', cakes.create_rating)
 
-    app.get('/read/:id', cakes.read_by_id)
+    app.get('/show/:id', cakes.read_by_id)
 
     app.put('/update/:id', cakes.update_by_id)
 

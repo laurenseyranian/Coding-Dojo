@@ -25,7 +25,8 @@ module.exports = {
             .catch(err => res.json(err));
     },
     update_by_id: function (req, res) {
-        Cake.updateById({ _id: req.params.id }, req.body)
+        Cake.updateOne({ _id: req.params.id }, {$push: {ratings: req.body }}, {multi:true})
+            
             .then(cake => res.json(cake))
             .catch(err => res.json(err));
     },

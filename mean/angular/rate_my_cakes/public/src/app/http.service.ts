@@ -18,14 +18,12 @@ export class HttpService {
     return this._http.post('/create_rating', cake);
   }
   readOneCake(id) {
-    return this._http.get('/read/' + id);
+    return this._http.get('/show/' + id);
   }
-  updateOneCake(id, cake) {
-    return this._http.put('/update/' + id, cake);
+  updateOneCake(id, newRating) {
+    return this._http.put('/update/' + id, newRating);
   }
   deleteOneCake(id) {
     return this._http.delete('/delete/' + id);
   }
-
-
 }

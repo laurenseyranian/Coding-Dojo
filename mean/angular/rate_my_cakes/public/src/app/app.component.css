@@ -1,0 +1,98 @@
+body{
+    background-color: plum;
+    height: 100%;
+}
+.welcome{
+    text-align: center;
+    font-size: 60px;
+    color: whitesmoke;
+}
+h1{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+/***************************************************/
+.addCake{
+    width: 700px;
+    height: 250px;
+    border: 2px solid darkmagenta;
+    margin-left: 5px;
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+.btn-warning{
+    color: whitesmoke;
+}
+h3{
+    text-align: center;
+    font-size: 25px;
+    border-bottom: 2px solid darkmagenta;
+    color: whitesmoke;
+}
+p{
+    font-weight: bolder;
+    font-size: 20px;
+}
+#submit{
+    margin-left: 300px;
+}
+/***************************************************/
+.allCakes {
+    width: 1400px;
+    border: 2px solid darkmagenta;
+    margin-top: 10px;
+}
+.moveTitle{
+    margin-left: 500px;
+}
+h5 {
+    text-align: center;
+    font-size: 40px;
+    border-bottom: 2px solid darkmagenta;
+    color: whitesmoke;
+    display: inline-block;
+}
+img {
+    width: 300px;
+    height: 300px;
+    vertical-align: top;
+}
+h6{
+    margin-left: 20px;
+    font-weight: bolder;
+    font-size: 25px;
+}
+.pic{
+    vertical-align: top;
+    display: inline-block;
+    border: 2px solid darkmagenta;
+    margin-left: 10px;
+    height: 370px;
+    width: 350px;
+}
+.commentRating{
+    height: 350px;
+    width: 550px;
+    vertical-align: top;
+    display: inline-block;
+    border: 2px solid darkmagenta;
+    margin-left: 300px;
+    padding: 20px;
+}
+.moveB{
+    margin-left: 130px;
+}
+.btn-success{
+    margin-left: 200px;
+}
+/***************************************************/
+.oneCake{
+    width: 680px;
+    height: 250px;
+    border: 2px solid darkmagenta;
+    margin-left: 10px;
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+}

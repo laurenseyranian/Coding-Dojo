@@ -1,0 +1,11 @@
+<div class="inline1">
+    <h5> Baker name: {{ showCake.name }}</h5>
+    <img src="{{ showCake.image }}" alt="error">
+</div>
+
+<div class="inline2">
+    <h6> Average Rating: {{ showCake.avgRating }} stars</h6>
+    <h3 *ngFor='let review of showCake.ratings'>
+        <h6>{{review.rating}} stars - {{review.comment}}</h6>
+    </h3>
+</div>

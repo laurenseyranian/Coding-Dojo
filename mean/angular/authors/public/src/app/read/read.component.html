@@ -1,0 +1,22 @@
+<div class="container col-7">
+    <button class="btn btn-success mb-5" [routerLink]="['/create']">CREATE</button>
+
+    <p class="text-primary lead">List of Lauren's Favorite Authors</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-primary lead" scope="col">Author</th>
+                <th class="text-primary lead" scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let author of authors">
+                <td class="text-secondary">{{ author.name }}</td>
+                <td>
+                    <button class="btn btn-info" [routerLink]="['/update/' + author._id]">UPDATE</button>
+                    <button id="delete" class="btn btn-danger ml-5" (click)="deleteOneAuthor(author)">DELETE</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

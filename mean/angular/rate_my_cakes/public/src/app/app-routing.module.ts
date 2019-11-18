@@ -4,7 +4,7 @@ import { ShowComponent } from './show/show.component';
 
 
 const routes: Routes = [
-    {path: 'read/:id', component: ShowComponent}
+    {path: 'read/:id', component: ShowComponent},
 ];
 
 @NgModule({

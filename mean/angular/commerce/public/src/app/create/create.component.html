@@ -1,0 +1,20 @@
+<div class="container col-7">
+    <button class="btn btn-warning mb-3 text-light" [routerLink]="['/products']">HOME</button>
+
+    <div class="jumbotron jumbotron-fluid p-5">
+            <h1 class="display-4 text-primary">Add New Product</h1>
+            <form (submit)="createOneProduct()">
+                <p class="lead text-danger error" *ngIf="errors.name">{{errors.name.message}}</p>
+                <p class="lead text-warning">Name: <input class="form-control form-control-lg col-10" type="text" name="newProduct.name" [(ngModel)]="newProduct.name"></p>
+
+                <p class="lead text-danger error" *ngIf="errors.quantity">{{errors.quantity.message}}</p>
+                <p class="lead text-warning">Quantity: <input class="form-control form-control-lg col-10" type="text" name="newProduct.quantity" [(ngModel)]="newProduct.quantity"></p>
+
+                <p class="lead text-danger error" *ngIf="errors.price">{{errors.price.message}}</p>
+                <p class="lead text-warning">Price: <input class="form-control form-control-lg col-10" type="text" name="newProduct.price" [(ngModel)]="newProduct.price"></p>
+
+                <input id="submit" class="btn btn-success mt-5" type="submit" value="ADD" />
+                <button class="btn btn-danger mt-5 ml-1" [routerLink]="['/products']">RESET</button>
+            </form>
+    </div>
+</div>

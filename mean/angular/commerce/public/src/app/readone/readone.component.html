@@ -1,0 +1,11 @@
+<div class="container col-7">
+    <button class="btn btn-primary mb-3 text-light" [routerLink]="['/products']">HOME</button>
+    
+    <div class="jumbotron jumbotron-fluid">
+        <h1 class="display-4 text-center">{{ viewProduct.name }}</h1>
+        <p class="lead ml-5">Quantity: {{ viewProduct.quantity }}</p>
+        <p class="lead ml-5">Price: ${{ viewProduct.price }}</p>
+        <button class="btn btn-danger ml-5 mt-5" (click)="deleteOneProduct(viewProduct)">DELETE</button>
+    </div>
+
+</div>

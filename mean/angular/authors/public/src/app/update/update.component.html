@@ -1,0 +1,13 @@
+<div class="container col-7">
+    <button class="btn btn-primary mb-3 text-light" [routerLink]="['/read']">HOME</button>
+
+    <div class="jumbotron jumbotron-fluid p-5">
+        <h1 class="display-4 text-center text-info">Update Author</h1>
+        <form (submit)="updateOneAuthor(editAuthor)">
+            <p class="lead text-info">Name: <input class="form-control form-control-lg" type="text"
+                    placeholder="{{ editAuthor.name }}" name="editAuthor.name" [(ngModel)]="editAuthor.name"></p>
+            <input id="submit" class="btn btn-success mr-2" type="submit" value="SUBMIT" />
+            <button class="btn btn-danger" [routerLink]="['/read']">CANCEL</button>
+        </form>
+    </div>
+</div>

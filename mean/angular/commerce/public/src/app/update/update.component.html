@@ -1,0 +1,21 @@
+<div class="container col-7">
+    <button class="btn btn-warning mb-3 text-light" [routerLink]="['/products']">HOME</button>
+
+    <div class="jumbotron jumbotron-fluid p-5">
+            <h1 class="display-4 text-primary">UpdateProduct</h1>
+            <form (submit)="updateOneProduct(editProduct)">
+
+                <p class="lead text-danger error" *ngIf="errorsUpdate.name">{{ errorsUpdate.name.message }}</p>
+                <p class="lead text-warning">Name: <input class="form-control form-control-lg" type="text" placeholder="{{ editProduct.name }}" name="editProduct.name" [(ngModel)]="editProduct.name"></p>
+
+                <p class="lead text-danger error" *ngIf="errorsUpdate.quantity">{{ errorsUpdate.quantity.message }}</p>
+                <p class="lead text-warning">Quantity: <input class="form-control form-control-lg" type="text" placeholder="{{ editProduct.quantity }}" name="editProduct.quantity" [(ngModel)]="editProduct.quantity"></p>
+                
+                <p class="lead text-danger error" *ngIf="errorsUpdate.price">{{ errorsUpdate.price.message }}</p>
+                <p class="lead text-warning">Price: <input class="form-control form-control-lg" type="text" placeholder="{{ editProduct.price }}" name="editProduct.price" [(ngModel)]="editProduct.price"></p>
+
+                <input id="submit" class="btn btn-success mt-5" type="submit" value="UPDATE" />
+                <button class="btn btn-danger mt-5 mr-1" [routerLink]="['/products']">RESET</button>
+            </form>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - HashMap",
+            "request": "launch",
+            "mainClass": "HashMap",
+            "projectName": "javaFun_fabd4d53"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - HelloWorld",
+            "request": "launch",
+            "mainClass": "HelloWorld",
+            "projectName": "javaFun_fabd4d53"
+        }
+    ]
+}

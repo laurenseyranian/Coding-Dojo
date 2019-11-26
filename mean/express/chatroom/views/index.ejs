@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <title>Home</title>
+    <script>
+        $(document).ready(function() {
+            const roomsContainer = document.getElementById('rooms-container');
+            var socket = io(); //1
+            socket.on('room_created', function(room) {
+                var htmlStr = `<div class="col-4 mt-2">
+                                    <div class="card">
+                                        <div class="card-header text-center bg-info text-white">
+                                            ${room}
+                                        </div>
+                                        <div class="card-body">
+                                            <a href="/${room}" class="btn btn-primary d-block">Join</a>
+                                        </div>
+                                    </div>
+                                </div>`
+                $('#rooms-container').append(htmlStr)
+            })
+        });
+    </script>
+    <style>
+        body{
+            background-color: #80C141;
+        }
+        .body{
+            background-color: #177890b4; 
+            width: 1000px;
+            height: 800px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        .wrapper{
+            background-color: #177890b4; 
+            padding: 50px;
+            margin-top: 100px;
+        }
+        .search{
+            margin-left: 80px;
+        }
+        .logImage{
+            background-image:url('home.jpg');
+            background-size:cover;
+            background-position:50% 50%;
+            width: 680px;
+            height: 680px;
+        }
+    </style>
+</head>
+
+<body class="text-center">
+    <div class="body logImage">
+        <div>
+            <img src="home.jpg" alt="">
+                <!-- <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav"> -->
+                        <!-- <div class="text-center"> -->
+                       <p class="navbar-brand js-scroll-trigger text-center" href="/"><span style="color:#80C141; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 80px;">CHATSTOP</span></p>
+                        <p class="text-center" href="/"><span style="color:white; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 20px;">Start Your Chat Here:</span></p>
+                        <!-- <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            BACK
+                            <i class="fas fa-bars"></i>
+                        </button> -->
+                        <!-- </div> -->
+                    <!-- </nav><br><br><br><br> -->
+            <div class="wrapper">
+                <div class="search">
+                <form action="/room" method="POST">
+                    <input type="text" class="form-control col-4 d-inline-block m-0" name="room" placeholder="Room name..">
+                    <button type="submit" class="btn btn-success">Create a groupchat</button>
+                </form>
+                </div>
+                <h3 class="mt-4" style="color:white; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 20px;">Your Chat rooms:</h3>
+                <div id="rooms-container" class="row">
+                    <% Object.keys(rooms).forEach(room => { %>
+                        <div class="col-4 mt-2">
+                            <div class="card">
+                                <div class="card-header text-center bg-info text-white">
+                                    <%= room %>
+                                </div>
+                                <div class="card-body">
+                                    <a href="/<%=room%>" class="btn btn-success">Join</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

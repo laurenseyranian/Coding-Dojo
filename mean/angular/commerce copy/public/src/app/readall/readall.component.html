@@ -1,0 +1,29 @@
+<div class="container col-7">
+    <button class="btn btn-success mb-5" [routerLink]="['/products/new']">ADD NEW PRODUCT</button>
+
+    <p class="text-primary lead">Products</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-primary lead" scope="col">ID</th>
+                <th class="text-primary lead" scope="col">Name</th>
+                <th class="text-primary lead" scope="col">Quantity</th>
+                <th class="text-primary lead" scope="col">Price</th>
+                <th class="text-primary lead" scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td class="text-secondary">{{ product._id }}</td>
+                <td class="text-secondary">{{ product.name }}</td>
+                <td class="text-secondary">{{ product.quantity }}</td>
+                <td class="text-secondary">${{ product.price }}</td>
+                <td>
+                    <button class="btn btn-info" [routerLink]="['/products/edit/' + product._id]">EDIT</button>
+                    <button class="btn btn-secondary ml-1" [routerLink]="['/products/' + product._id]">DETAILS</button>
+                    <button class="btn btn-danger ml-1" (click)="deleteOneProduct(product)">DELETE</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

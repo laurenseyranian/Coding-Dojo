@@ -1,0 +1,6 @@
+.buttons{
+	display: inline-block;
+} 
+.buttons *{
+	display: inline-block;
+}

@@ -18,7 +18,7 @@ import com.codingdojo.dojosNinjas.services.DojoService;
 
 @Controller
 public class DojoController {
-////Attributes(Controllers need Service Attributes)
+////Attributes(Controllers need Service Attributes in order to access info from the Service)
 	private final DojoService dojoService;
 	//Constructor Method that Makes Service apart of the instance of the Controller
 	public DojoController(DojoService dojoService) {

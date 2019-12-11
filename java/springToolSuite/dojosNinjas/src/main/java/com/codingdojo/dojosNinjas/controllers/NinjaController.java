@@ -20,23 +20,33 @@ import com.codingdojo.dojosNinjas.services.NinjaService;
 
 @Controller
 public class NinjaController {
-////Attributes?
+//-------------------------------------------------------------------------------------------------
+// Attributes(Controllers need Service Attributes in order to access info from the Service)
+//-------------------------------------------------------------------------------------------------
 	private final NinjaService ninjaService;
 	private final DojoService dojoService;
+	//---------------------------------------------------------------------------------------------
+	// Constructor Method that Makes Service apart of the instance of the Controller
+	//---------------------------------------------------------------------------------------------
 	public NinjaController(NinjaService ninjaService, DojoService dojoService) {
-		//Creating an instance from the Ninja Service??		
+		//-----------------------------------------------------------------------------------------
+		// Attach Service to instance of Controller
+		//-----------------------------------------------------------------------------------------		
 		this.ninjaService = ninjaService;
 		this.dojoService = dojoService;
 	}
-	
-////Route for CREATING a new Ninja///////////////////////////////////////////////////////////////////////////	
+//-------------------------------------------------------------------------------------------------
+// GET route for CREATING a new Ninja
+//-------------------------------------------------------------------------------------------------	
 	@RequestMapping("/ninjas/new")
 	public String newNinja(@ModelAttribute("ninja") Ninja ninja, Model model) {
 		List<Dojo> dojos = dojoService.allDojos();
 		model.addAttribute("dojos", dojos);
 		return "/dojos_ninjas/createNinja.jsp";
 	}
-////POST route for CREATING a new Ninja/////////////////////////////////////////////////////////////////////// 	
+//-------------------------------------------------------------------------------------------------
+// POST route for CREATING a new Ninja
+//-------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "/ninja/process", method = RequestMethod.POST)
 	public String create(@Valid @ModelAttribute("ninja") Ninja createNinja, BindingResult result) {
 		if (result.hasErrors()) {
@@ -46,20 +56,26 @@ public class NinjaController {
 			return "redirect:/";
 		}
 	}
-////Route for READING all Ninja's/////////////////////////////////////////////////////////////////////////////// 
+//-------------------------------------------------------------------------------------------------
+// GET route for READING all Ninja's
+//-------------------------------------------------------------------------------------------------
 	@RequestMapping("/ninjas")
 	public String index(Model model) {
 		List<Ninja> ninjas = ninjaService.allNinjas();
 		model.addAttribute("ninjas", ninjas);
 		return "/dojos_ninjas/readAll.jsp";
 	}
-////Route for READING one Ninja by ID//////////////////////////////////////////////////////////////////////////	
+//-------------------------------------------------------------------------------------------------
+// GET route for READING one Ninja by ID
+//-------------------------------------------------------------------------------------------------
 	@GetMapping("/ninjas/{ninja_id}")
 	public String getPerson(@PathVariable("ninja_id") Long id, Model model) { 
 		model.addAttribute("ninja", ninjaService.findNinja(id));
 		return "/dojos_ninjas/readOne.jsp";
 	}
-////Route for DELETING one Ninja by id//////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------------------------------------------------
+// POST route for DELETING one Ninja by ID
+//-------------------------------------------------------------------------------------------------	
 	@RequestMapping(value = "/ninjas/{ninja_id}", method = RequestMethod.DELETE)
 	public String destroy(@PathVariable("ninja_id") Long id) {
 		ninjaService.deleteNinja(id);

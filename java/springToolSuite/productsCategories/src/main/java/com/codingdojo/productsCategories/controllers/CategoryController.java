@@ -20,18 +20,29 @@ import com.codingdojo.productsCategories.services.CategoryProductService;
 
 @Controller
 public class CategoryController {
-////Attributes(Controllers need Service Attributes in order to access info from the Service)
+//--------------------------------------------------------------------------------------------
+// Attributes(Controllers need Service Attributes in order to access info from the Service)
+//--------------------------------------------------------------------------------------------	
 	private final CategoryProductService categoryProductService;
+	//----------------------------------------------------------------------------------------
+	// Constructor Method that Makes Service apart of the instance of the Controller
+	//----------------------------------------------------------------------------------------
 	public CategoryController(CategoryProductService categoryProductService) {
-	////Creating an instance from the Service		
+	//----------------------------------------------------------------------------------------
+	// Creating an instance from the Service
+	//----------------------------------------------------------------------------------------		
 		this.categoryProductService = categoryProductService;
 	}
-////Route for CREATING a new Product///////////////////////////////////////////////////////////////////////////	
+//--------------------------------------------------------------------------------------------
+// GET Route for CREATING a new Product
+//--------------------------------------------------------------------------------------------	
 	@RequestMapping("/categories/new")
 	public String newCategory(@ModelAttribute("category") Category category, Model model) {
 		return "/categoryProduct/createCategory.jsp";
 	}
-////POST route for CREATING a new Product/////////////////////////////////////////////////////////////////////// 	
+//--------------------------------------------------------------------------------------------
+// POST route for CREATING a new Product
+//--------------------------------------------------------------------------------------------	
 	@RequestMapping(value = "/category/process", method = RequestMethod.POST)
 	public String create(@Valid @ModelAttribute("category") Category createCategory, BindingResult result) {
 		if (result.hasErrors()) {
@@ -41,7 +52,9 @@ public class CategoryController {
 			return "redirect:/categories/" + createCategory.getId();
 		}
 	}
-////Route for READING one Product by ID//////////////////////////////////////////////////////////////////////////	
+//--------------------------------------------------------------------------------------------
+// GET route for READING one Product by ID
+//--------------------------------------------------------------------------------------------	
 	@GetMapping("/categories/{category_id}")
 	public String getPerson(@PathVariable("category_id") Long id, Model model, @ModelAttribute("categoryProduct") CategoryProduct categoryProduct) { 
 		model.addAttribute("category", categoryProductService.findCategory(id));
@@ -49,7 +62,9 @@ public class CategoryController {
 		model.addAttribute("products", products);
 		return "/categoryProduct/readOneCategory.jsp";
 	}
-////Route for adding a Category to a Product on Categories Page////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------
+// POST route for adding a Category to a Product on the Categories page
+//--------------------------------------------------------------------------------------------	
 	@RequestMapping("/addCategoryToProduct")
 	public String addCategory(@ModelAttribute("categoryProduct") CategoryProduct categoryProduct, Model model) {
 		categoryProductService.addProductOrCategory(categoryProduct);

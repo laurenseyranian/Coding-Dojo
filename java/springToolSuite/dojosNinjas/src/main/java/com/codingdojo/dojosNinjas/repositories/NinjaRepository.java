@@ -10,8 +10,12 @@ import com.codingdojo.dojosNinjas.models.Ninja;
 
 @Repository
 public interface NinjaRepository extends CrudRepository<Ninja, Long>{
-////Retrieves ALL the Ninja's from the database
+//-------------------------------------------------------------------------------------------------
+// Finds ALL the Ninjas from the database
+//-------------------------------------------------------------------------------------------------
 	List<Ninja> findAll();
-////Retrieves one Dojo's by ID from the database
+//-------------------------------------------------------------------------------------------------
+// Finds one Ninja by ID from the database
+//-------------------------------------------------------------------------------------------------
 	Optional<Ninja> findById(Long id);
 }

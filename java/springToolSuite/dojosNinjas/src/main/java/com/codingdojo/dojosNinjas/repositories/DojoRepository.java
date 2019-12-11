@@ -10,8 +10,12 @@ import com.codingdojo.dojosNinjas.models.Dojo;
 
 @Repository
 public interface DojoRepository extends CrudRepository<Dojo, Long>{
-////Retrieves ALL the Dojo's from the database
+//-------------------------------------------------------------------------------------------------
+// Finds ALL the Dojo's from the database
+//-------------------------------------------------------------------------------------------------	
 	List<Dojo> findAll();
-////Retrieves one Dojo's by ID from the database
+//-------------------------------------------------------------------------------------------------
+// Retrieves one Dojo's by ID from the database
+//-------------------------------------------------------------------------------------------------	
 	Optional<Dojo> findById(Long id);
 }

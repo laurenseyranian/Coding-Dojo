@@ -21,18 +21,29 @@ import com.codingdojo.productsCategories.services.CategoryProductService;
 @Controller
 public class ProductController {
 	
-////Attributes(Controllers need Service Attributes in order to access info from the Service)
+//--------------------------------------------------------------------------------------------
+// Attributes(Controllers need Service Attributes in order to access info from the Service)
+//--------------------------------------------------------------------------------------------	
 	private final CategoryProductService categoryProductService;
+	//----------------------------------------------------------------------------------------
+	// Constructor Method that Makes Service apart of the instance of the Controller
+	//----------------------------------------------------------------------------------------
 	public ProductController(CategoryProductService categoryProductService) {
-		//Creating an instance from the Service??		
+		//------------------------------------------------------------------------------------
+		// Creating an instance from the Service
+		//------------------------------------------------------------------------------------		
 		this.categoryProductService = categoryProductService;
 	}
-////Route for CREATING a new Product///////////////////////////////////////////////////////////////////////////	
+//--------------------------------------------------------------------------------------------
+// GET route for CREATING a new Product
+//--------------------------------------------------------------------------------------------	
 	@RequestMapping("/products/new")
 	public String newProduct(@ModelAttribute("product") Product product, Model model) {
 		return "/categoryProduct/createProduct.jsp";
 	}
-////POST route for CREATING a new Product/////////////////////////////////////////////////////////////////////// 	
+//--------------------------------------------------------------------------------------------
+// POST route for CREATING a new Product
+//--------------------------------------------------------------------------------------------	
 	@RequestMapping(value = "/product/process", method = RequestMethod.POST)
 	public String create(@Valid @ModelAttribute("product") Product createProduct, BindingResult result) {
 		if (result.hasErrors()) {
@@ -42,7 +53,9 @@ public class ProductController {
 			return "redirect:/products/" + createProduct.getId();
 		}
 	}
-////Route for READING one Product by ID//////////////////////////////////////////////////////////////////////////	
+//--------------------------------------------------------------------------------------------
+// GET Route for READING one Product by ID
+//--------------------------------------------------------------------------------------------	
 	@GetMapping("/products/{product_id}")
 	public String getPerson(@PathVariable("product_id") Long id, Model model, @ModelAttribute("productCategory") CategoryProduct categoryProduct) { 
 		model.addAttribute("product", categoryProductService.findProduct(id));
@@ -50,7 +63,9 @@ public class ProductController {
 		model.addAttribute("categories", categories);
 		return "/categoryProduct/readOneProduct.jsp";
 	}
-////Route for ADDING a Product to a Category on Products Page/////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------
+// GET route for ADDING a Product to a Category on Products Page
+//--------------------------------------------------------------------------------------------	
 	@RequestMapping("/addProductToCategory")
 	public String addCategory(@ModelAttribute("productCategory") CategoryProduct categoryProduct, Model model) {
 		categoryProductService.addProductOrCategory(categoryProduct);

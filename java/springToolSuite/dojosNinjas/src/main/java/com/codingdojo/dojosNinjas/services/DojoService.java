@@ -15,15 +15,21 @@ public class DojoService {
 	public DojoService(DojoRepository dojoRepository) {
         this.dojoRepository = dojoRepository;
     }
-////CREATES a Dojo/////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------------------------------------------------
+// CREATES a Dojo
+//-------------------------------------------------------------------------------------------------
     public Dojo createDojo(Dojo createDojo) {
         return dojoRepository.save(createDojo);
     }
-////READS all the Dojo's//////////////////////////////////////////////////////////////////
+//-------------------------------------------------------------------------------------------------
+// READS all the Dojo's
+//-------------------------------------------------------------------------------------------------
     public List<Dojo> allDojos() {
         return dojoRepository.findAll();
     }
-////RETRIEVES one Dojo by ID/////////////////////////////////////////////////////////// 
+//-------------------------------------------------------------------------------------------------
+// RETRIEVES one Dojo by ID
+//-------------------------------------------------------------------------------------------------
     public Dojo findDojo(Long id) {
         Optional<Dojo> optionalDojo = dojoRepository.findById(id);
         if(optionalDojo.isPresent()) {
@@ -32,7 +38,9 @@ public class DojoService {
             return null;
         }
     }
-////DELETES one Dojo by ID/////////////////////////////////////////////////////////////////
+//-------------------------------------------------------------------------------------------------
+// DELETES one Dojo by ID
+//-------------------------------------------------------------------------------------------------
  	public void deleteDojo(Long id) {
  		Dojo deleteDojo= this.findDojo(id);
  		dojoRepository.delete(deleteDojo);

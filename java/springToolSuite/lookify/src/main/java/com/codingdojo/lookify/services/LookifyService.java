@@ -19,13 +19,15 @@ public class LookifyService {
 	public List<Song> allSongs() {
 		return lookifyRepository.findAll();
 	}
-
-////CREATES one song/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------
+// CREATES one song
+//---------------------------------------------------------------------------------------
 	public Song createSong(Song createSong) {
 		return lookifyRepository.save(createSong);
 	}
-
-////READS one song by id/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------
+// READS one song by ID
+//---------------------------------------------------------------------------------------
 	public Song findSong(Long id) {
 		Optional<Song> optionalSong = lookifyRepository.findById(id);
 		if (optionalSong.isPresent()) {
@@ -34,32 +36,23 @@ public class LookifyService {
 			return null;
 		}
 	}
-////READ Top Ten Songs/////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------
+// READ Top Ten Songs
+//---------------------------------------------------------------------------------------
 	public List<Song> topTen() {
 		return lookifyRepository.findTop10ByOrderByRatingDesc();
 	}
-////UPDATES one song/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	public Song updateSong(Song updateSong) {
-//        return lookifyRepository.save(updateSong);
-//    }
 
-////UPDATES one song by id///////////////////////////////////////////////////////////////////////////////////////////////////////
-//	public Song updateSong(Long id, String title, String artist, int rating) {
-//		Song updateSong = this.findSong(id);
-//		updateSong.setTitle(title);
-//		updateSong.setArtist(artist);
-//		updateSongm.setRating(rating);
-//		lookifyRepository.save(updateSong);
-//		return updateSong;
-//	}
-	
-////DELETES one song by id///////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------
+// DELETES one song by ID
+//---------------------------------------------------------------------------------------	
 	public void deleteSong(Long id) {
 		Song deleteSong = this.findSong(id);
 		lookifyRepository.delete(deleteSong);
 	}
-	
-////SEARCH for song by typing artist name/////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------
+// SEARCH for ALL songs by typing artist name
+//---------------------------------------------------------------------------------------	
 	public List<Song> findArtistSongs(String search) {
 		return lookifyRepository.findByArtistContaining(search);
 	}

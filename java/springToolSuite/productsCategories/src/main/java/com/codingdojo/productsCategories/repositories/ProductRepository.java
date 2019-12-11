@@ -8,8 +8,12 @@ import org.springframework.data.repository.CrudRepository;
 import com.codingdojo.productsCategories.models.Product;
 
 public interface ProductRepository extends CrudRepository<Product, Long>{
-////Retrieves ALL the products from the database
+//--------------------------------------------------------------------------------------------
+// FINDS all the products from the database
+//--------------------------------------------------------------------------------------------	
 	List<Product> findAll();
-////Retrieves one product by ID from the database
+//--------------------------------------------------------------------------------------------
+// FINDS one product by ID from the database
+//--------------------------------------------------------------------------------------------		
 	Optional<Product> findById(Long id);
 }

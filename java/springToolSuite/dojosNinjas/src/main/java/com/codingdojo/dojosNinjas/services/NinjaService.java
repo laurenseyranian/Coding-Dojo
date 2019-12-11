@@ -15,18 +15,28 @@ public class NinjaService {
 	public NinjaService(NinjaRepository ninjaRepository) {
 		this.ninjaRepository = ninjaRepository;
 	}
-
-////READS all the Ninja's//////////////////////////////////////////////////////////////////
-	public List<Ninja> allNinjas() {
-		return ninjaRepository.findAll();
-	}
-
-////CREATES one Ninja//////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------------------------------------------------
+// CREATES one Ninja
+//-------------------------------------------------------------------------------------------------
 	public Ninja createNinja(Ninja createNinja) {
 		return ninjaRepository.save(createNinja);
 	}
-
-////RETRIEVES one Ninja by ID////////////////////////////////////////////////////////////// 
+//-------------------------------------------------------------------------------------------------
+// READS all the Ninja's
+//-------------------------------------------------------------------------------------------------
+	public List<Ninja> allNinjas() {
+		return ninjaRepository.findAll();
+	}
+//-------------------------------------------------------------------------------------------------
+// DELETES one Ninja by ID
+//-------------------------------------------------------------------------------------------------
+	public void deleteNinja(Long id) {
+		Ninja deleteNinja= this.findNinja(id);
+	 	ninjaRepository.delete(deleteNinja);
+	 }
+//-------------------------------------------------------------------------------------------------
+// FINDS one Ninja by ID
+//-------------------------------------------------------------------------------------------------
 	public Ninja findNinja(Long id) {
 		Optional<Ninja> optionalNinja = ninjaRepository.findById(id);
 		if (optionalNinja.isPresent()) {
@@ -35,11 +45,6 @@ public class NinjaService {
 			return null;
 		}
 	}
-////DELETES one Ninja by ID////////////////////////////////////////////////////////////////
-	public void deleteNinja(Long id) {
-		Ninja deleteNinja= this.findNinja(id);
-	 	ninjaRepository.delete(deleteNinja);
-	 }
 }
 
 

@@ -18,19 +18,29 @@ import com.codingdojo.dojosNinjas.services.DojoService;
 
 @Controller
 public class DojoController {
-////Attributes(Controllers need Service Attributes in order to access info from the Service)
+//-------------------------------------------------------------------------------------------------
+// Attributes(Controllers need Service Attributes in order to access info from the Service)
+//-------------------------------------------------------------------------------------------------
 	private final DojoService dojoService;
-	//Constructor Method that Makes Service apart of the instance of the Controller
+	//---------------------------------------------------------------------------------------------
+	// Constructor Method that Makes Service apart of the instance of the Controller
+	//---------------------------------------------------------------------------------------------
 	public DojoController(DojoService dojoService) {
-		//Attach Service to instance of Controller	
+		//-----------------------------------------------------------------------------------------
+		// Attach Service to instance of Controller
+		//-----------------------------------------------------------------------------------------
 		this.dojoService = dojoService;
 	}
-////Route for CREATING a new Dojo/////////////////////////////////////////////////////////////////////////////	
+//-------------------------------------------------------------------------------------------------
+// GET route for CREATING a new Dojo
+//-------------------------------------------------------------------------------------------------
 	@RequestMapping("/dojos/new")
 	public String newDojo(@ModelAttribute("dojo") Dojo dojo) {
 		return "/dojos_ninjas/createDojo.jsp";
 	}
-////POST route for CREATING a new Dojo//////////////////////////////////////////////////////////////////////// 	
+//-------------------------------------------------------------------------------------------------
+// POST route for CREATING a new Dojo
+//-------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "/dojo/process", method = RequestMethod.POST)
 	public String create(@Valid @ModelAttribute("dojo") Dojo createDojo, BindingResult result) {
 		if (result.hasErrors()) {
@@ -40,20 +50,26 @@ public class DojoController {
 			return "redirect:/ninjas/new";
 		}
 	}
-////Route for READING all Dojo's///////////////////////////////////////////////////////////////////////////////// 
+//-------------------------------------------------------------------------------------------------
+// GET route for READING all Dojo's
+//-------------------------------------------------------------------------------------------------
 	@RequestMapping("/")
 	public String index(Model model) {
 		List<Dojo> dojos = dojoService.allDojos();
 		model.addAttribute("dojos", dojos);
 		return "/dojos_ninjas/readAll.jsp";
 	}
-////Route for READING one Dojo by ID////////////////////////////////////////////////////////////////////////////	
+//-------------------------------------------------------------------------------------------------
+// GET route for READING one Dojo by ID
+//-------------------------------------------------------------------------------------------------
 	@GetMapping("/dojos/{dojo_id}")
 	public String getDojo(@PathVariable("dojo_id") Long id, Model model) { 
 		model.addAttribute("dojo", dojoService.findDojo(id));
 		return "/dojos_ninjas/readOne.jsp";
 	}
-////Route for DELETING one Dojo by ID//////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------------------------------------------------
+// POST route for DELETING one Dojo by ID
+//-------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "/dojos/{dojo_id}", method = RequestMethod.DELETE)
 	public String destroy(@PathVariable("dojo_id") Long id) {
 		dojoService.deleteDojo(id);

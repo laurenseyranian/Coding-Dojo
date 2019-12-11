@@ -7,5 +7,8 @@ import com.codingdojo.languages.models.Language;
 
 @Repository
 public interface LanguageRepository extends CrudRepository<Language, Long>{
+//-------------------------------------------------------------------------------------------------
+// FIND all languages
+//------------------------------------------------------------------------------------------------- 
 	List<Language> findAll();
 }

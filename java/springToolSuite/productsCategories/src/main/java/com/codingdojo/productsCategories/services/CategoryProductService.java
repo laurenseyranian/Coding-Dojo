@@ -24,20 +24,27 @@ public class CategoryProductService {
 		this.categoryProductRepository = categoryProductRepository;
 	}
 
-
-////CREATES one Category//////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------
+// CREATES one Category
+//--------------------------------------------------------------------------------------------	
 	public Category createCategory(Category createCategory) {
 		return categoryRepository.save(createCategory);
 	}
-////CREATES one Product/////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------
+// CREATES one Product
+//--------------------------------------------------------------------------------------------	
     public Product createProduct(Product createProduct) {
         return productRepository.save(createProduct);
     }
-////ADDING a Category to a Product or vice-versa////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------
+// ADDING a Category to a Product or vice-versa
+//--------------------------------------------------------------------------------------------	
     public CategoryProduct addProductOrCategory(CategoryProduct categoryProduct) {
         return categoryProductRepository.save(categoryProduct);
-    }  
-////RETRIEVES one Category by ID////////////////////////////////////////////////////////////// 
+    } 
+//--------------------------------------------------------------------------------------------
+// FINDS one Category by ID
+//--------------------------------------------------------------------------------------------
 	public Category findCategory(Long id) {
 		Optional<Category> optionalCategory = categoryRepository.findById(id);
 		if (optionalCategory.isPresent()) {
@@ -46,7 +53,9 @@ public class CategoryProductService {
 			return null;
 		}
 	}
-////RETRIEVES one Product by ID////////////////////////////////////////////////////////////// 
+//--------------------------------------------------------------------------------------------
+// FINDS one Product by ID
+//--------------------------------------------------------------------------------------------
 	public Product findProduct(Long id) {
 		Optional<Product> optionalProduct = productRepository.findById(id);
 		if (optionalProduct.isPresent()) {
@@ -55,12 +64,16 @@ public class CategoryProductService {
 			return null;
 		}
 	}
-////RETRIEVES all Products////////////////////////////////////////////////////////////////// 
+//--------------------------------------------------------------------------------------------
+// FINDS all Products
+//--------------------------------------------------------------------------------------------
 	public List<Product> allProducts() {
 		productRepository.findAll();
 		return productRepository.findAll();
 	}
-////RETRIEVES all Categories////////////////////////////////////////////////////////////////// 
+//--------------------------------------------------------------------------------------------
+// FINDS all Categories
+//--------------------------------------------------------------------------------------------
 	public List<Category> allCategories() {
 		categoryRepository.findAll();
 		return categoryRepository.findAll();

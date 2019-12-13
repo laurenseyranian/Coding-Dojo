@@ -18,6 +18,9 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "dojos")
 public class Dojo {
+//----------------------------------------------------------------
+//	Attributes
+//----------------------------------------------------------------
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
@@ -31,9 +34,14 @@ public class Dojo {
 	private Date updatedAt;
 	@OneToMany(mappedBy = "dojo", fetch = FetchType.LAZY)
 	private List<Ninja> ninjas;
-
+//----------------------------------------------------------------
+//	Constructors
+//----------------------------------------------------------------
 	public Dojo() {}
-
+	
+//----------------------------------------------------------------
+//	Getters and Setters
+//----------------------------------------------------------------
 	public Long getId() {
 		return id;
 	}

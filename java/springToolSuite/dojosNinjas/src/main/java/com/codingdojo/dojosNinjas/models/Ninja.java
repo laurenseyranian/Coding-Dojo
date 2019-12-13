@@ -19,6 +19,9 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="ninjas")
 public class Ninja {
+//----------------------------------------------------------------
+//	Attributes
+//----------------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
@@ -40,9 +43,14 @@ public class Ninja {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="dojo_id")
     private Dojo dojo;
-    
+//----------------------------------------------------------------
+//	Constructors
+//----------------------------------------------------------------
     public Ninja() {}
     
+//----------------------------------------------------------------
+//	Getters and Setters
+//----------------------------------------------------------------
     public Long getId() {
 		return id;
 	}

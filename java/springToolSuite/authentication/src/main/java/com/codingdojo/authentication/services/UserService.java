@@ -1,7 +1,9 @@
 package com.codingdojo.authentication.services;
 
 import java.util.Optional;
+
 import org.mindrot.jbcrypt.BCrypt;
+
 import org.springframework.stereotype.Service;
 
 import com.codingdojo.authentication.models.User;
@@ -9,13 +11,20 @@ import com.codingdojo.authentication.repositories.UserRepository;
 
 @Service
 public class UserService {
+//--------------------------------------------------------------------------------------------
+// Attributes 
+//--------------------------------------------------------------------------------------------
+
     private final UserRepository userRepository;
-    
+    //----------------------------------------------------------------------------------------
+    // Constructors 
+    //----------------------------------------------------------------------------------------
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    
-    // register user and hash their password
+//--------------------------------------------------------------------------------------------
+// REGISTER user AND HASH their password
+//--------------------------------------------------------------------------------------------
     public User registerUser(User user) {
         String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
         user.setPassword(hashed);
@@ -25,13 +34,15 @@ public class UserService {
         	return null;
         }
     }
-    
-    // find user by email
+//--------------------------------------------------------------------------------------------
+// FIND user by EMAIL
+//--------------------------------------------------------------------------------------------
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
-    
-    // find user by id
+//--------------------------------------------------------------------------------------------
+// FIND user by ID
+//--------------------------------------------------------------------------------------------
     public User findUserById(Long id) {
     	Optional<User> u = userRepository.findById(id);
     	
@@ -41,8 +52,9 @@ public class UserService {
     	    return null;
     	}
     }
-    
-    // authenticate user
+//--------------------------------------------------------------------------------------------
+// AUTHENTICATE user
+//--------------------------------------------------------------------------------------------
     public boolean authenticateUser(String email, String password) {
         // first find the user by email
         User user = userRepository.findByEmail(email);
@@ -58,7 +70,9 @@ public class UserService {
             }
         }
     }
-    // check if the user exits    
+//--------------------------------------------------------------------------------------------
+// CHECK is user exits
+//--------------------------------------------------------------------------------------------
     public boolean checkUser(String email) {
         User user = userRepository.findByEmail(email);
         if(user == null) {

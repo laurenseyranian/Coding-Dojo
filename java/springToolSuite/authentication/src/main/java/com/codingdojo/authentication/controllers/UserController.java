@@ -1,4 +1,4 @@
-package com.codingdojo.authentication.controller;
+package com.codingdojo.authentication.controllers;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.codingdojo.authentication.model.User;
-import com.codingdojo.authentication.service.UserService;
+import com.codingdojo.authentication.models.User;
+import com.codingdojo.authentication.services.UserService;
 
 @Controller
 public class UserController {

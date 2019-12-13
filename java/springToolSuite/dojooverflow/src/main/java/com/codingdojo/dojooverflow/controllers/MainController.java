@@ -33,7 +33,7 @@ public class MainController {
 		this.mainService = mainService;
 	}
 //----------------------------------------------------------------
-// CREATE one question - Get Route
+// GET route for CREATING one question
 //----------------------------------------------------------------
 	@GetMapping("/questions/new")
 	public String newQuestions() {

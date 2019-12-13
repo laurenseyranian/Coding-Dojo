@@ -1,6 +1,4 @@
-package com.codingdojo.events.controllers;
-
-import java.util.List;
+package com.codingdojo.tasks.controllers;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -14,50 +12,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.codingdojo.events.models.User;
-import com.codingdojo.events.services.EventService;
-import com.codingdojo.events.services.UserService;
+import com.codingdojo.tasks.models.User;
+import com.codingdojo.tasks.services.UserService;
 
 @Controller
 public class UserController {
-//--------------------------------------------------------------------------------------------
-// Attribute
-//--------------------------------------------------------------------------------------------
 	private final UserService userService;
-	//----------------------------------------------------------------------------------------
-	// Constructor
-	//----------------------------------------------------------------------------------------
+
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
-//--------------------------------------------------------------------------------------------
-// Dictionary for all of the states
-//--------------------------------------------------------------------------------------------
-	private final String[] states = { "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID",
-	        "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ",
-	        "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV",
-	        "WY" };
+
 //--------------------------------------------------------------------------------------------
 // GET route for READING authentication page
 //--------------------------------------------------------------------------------------------	
 	@RequestMapping("/")
-	public String registerForm(@ModelAttribute("user") User user, Model model) {
-		model.addAttribute("states", this.states);
-		return "/events/authentication.jsp";
+	public String registerForm(@ModelAttribute("user") User user) {
+		return "/tasks/authentication.jsp";
 	}
 
-//--------------------------------------------------------------------------------------------
-// 										REGISTRATION
-//--------------------------------------------------------------------------------------------
-	
-//--------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
+//	 										REGISTRATION
+// --------------------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------------------
 // POST route for CREATING a user
 // --------------------------------------------------------------------------------------------
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String registerUser(Model model, @Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session, RedirectAttributes attribute) {
-		model.addAttribute("states", this.states);
+	public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session, RedirectAttributes attribute) {
 		if (result.hasErrors()) {
-			return "/events/authentication.jsp";
+			return "/tasks/authentication.jsp";
 		} else if (userService.checkUser(user.getEmail())) {
 			attribute.addFlashAttribute("registrationError", "User already exists");
 			return "redirect:/";
@@ -68,11 +52,10 @@ public class UserController {
 			User new_user = userService.registerUser(user);
 			session.setAttribute("loggedIn", user);
 			session.setAttribute("userId", new_user.getId());
-			return "redirect:/events";
+			return "redirect:/tasks";
 		}
 	}
-	
-	
+
 //--------------------------------------------------------------------------------------------
 //											LOGIN
 //--------------------------------------------------------------------------------------------
@@ -96,13 +79,14 @@ public class UserController {
 			} else {
 				session.setAttribute("userId", user.getId());
 				session.setAttribute("loggedIn", true);
-				return "redirect:/events";
+				return "redirect:/tasks";
 			}
 		} else {
 			attribute.addFlashAttribute("loginError", "Invalid Password");
 		}
 		return "redirect:/";
 	}
+
 //--------------------------------------------------------------------------------------------
 // GET route for logging out a user 
 //--------------------------------------------------------------------------------------------

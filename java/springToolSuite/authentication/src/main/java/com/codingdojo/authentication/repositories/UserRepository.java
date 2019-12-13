@@ -1,9 +1,9 @@
-package com.codingdojo.authentication.repository;
+package com.codingdojo.authentication.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.codingdojo.authentication.model.User;
+import com.codingdojo.authentication.models.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {

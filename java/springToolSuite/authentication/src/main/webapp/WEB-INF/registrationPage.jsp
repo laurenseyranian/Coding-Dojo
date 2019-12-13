@@ -12,26 +12,44 @@
     
 </head>
 <body>
-    <h1>Register!</h1>
-    
-    <p><form:errors path="user.*"/></p>
-    <p class="text-danger"><c:out value="${error}" /></p>
-    
-    <form:form method="POST" action="/registration" modelAttribute="user">
-        <p>
-            <form:label path="email">Email:</form:label>
-            <form:input type="email" path="email"/>
-        </p>
-        <p>
-            <form:label path="password">Password:</form:label>
-            <form:password path="password"/>
-        </p>
-        <p>
-            <form:label path="passwordConfirmation">Password Confirmation:</form:label>
-            <form:password path="passwordConfirmation"/>
-        </p>
-        <input type="submit" value="Register!"/>
-    </form:form>
-    
+	<div class="container">
+		<div class="registerBox ml-5">
+		    <h1 class="display-4 text-success">Register</h1>
+		    
+		    <p class="text-danger"><form:errors path="user.*"/></p>
+		    
+		    <p class="text-danger"><c:out value="${error}" /></p>
+		    
+		    <form:form method="POST" action="/registration" modelAttribute="user">
+		    	<p>
+		            <form:label class="col-sm-4 col-form-label" path="first_name">First Name:</form:label>
+		            <form:input class="form-control col-sm-6" type="text" path="first_name"/>
+		        </p>
+		        
+		        <p>
+		            <form:label class="col-sm-4 col-form-label" path="last_name">Last Name:</form:label>
+		            <form:input class="form-control col-sm-6" type="text" path="last_name"/>
+		        </p>
+		        
+		    	<p>
+		    		<form:label class="col-sm-4 col-form-label" path="email">Email:</form:label>
+				    <form:input class="form-control col-sm-6" type="text" path="email"/>
+				</p>
+				
+		        <p>
+					<form:label  class="col-sm-4 col-form-label" path="password">Password:</form:label>
+				    <form:password class="form-control col-sm-6" path="password"/>
+				</p>
+				
+				<p>
+					<form:label class="col-sm-6 col-form-label" path="passwordConfirmation">Password Confirmation:</form:label>
+				    <form:password class="form-control col-sm-6" path="passwordConfirmation"/>
+				</p>
+				
+				<input class="btn btn-outline-success mt-3" type="submit" value="Register"/>
+		    </form:form>
+    	</div>
+<!-- end of container -->
+    </div>
 </body>
 </html>

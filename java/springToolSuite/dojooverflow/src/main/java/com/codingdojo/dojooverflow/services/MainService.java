@@ -28,13 +28,13 @@ public class MainService {
 		this.tagQuestionRepository = tagQuestionRepository;
 	}
 //  ----------------------------------------------------------------
-//  Find all questions
+//  FIND all questions
 //  ----------------------------------------------------------------
 	public List<Question> allQuestions(){
 		return questionRepository.findAll();
 	}
 //  ----------------------------------------------------------------
-//  Find one question by ID
+//  FIND one question by ID
 //  ----------------------------------------------------------------
 	public Question findQuestionById(Long question_id) {
 		Question question = questionRepository.findQuestionById(question_id);

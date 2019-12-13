@@ -1,11 +1,11 @@
-package com.codingdojo.authentication.service;
+package com.codingdojo.authentication.services;
 
 import java.util.Optional;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
-import com.codingdojo.authentication.model.User;
-import com.codingdojo.authentication.repository.UserRepository;
+import com.codingdojo.authentication.models.User;
+import com.codingdojo.authentication.repositories.UserRepository;
 
 @Service
 public class UserService {

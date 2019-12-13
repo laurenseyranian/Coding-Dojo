@@ -14,9 +14,9 @@ import com.codingdojo.events.repositories.UserRepository;
 
 @Service
 public class EventService {
-//--------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------
 // Attributes
-//--------------------------------------------------------------------------------------------	
+//---------------------------------------------------------------------------------------------	
 	private final EventRepository eventRepository;
 	private final MessageRepository messageRepository;
 	private final UserRepository userRepository;
@@ -38,9 +38,9 @@ public class EventService {
 		return eventRepository.save(event);
 	}
 
-//--------------------------------------------------------------------------------------------
-// CREATE message and ADD to an event
-//--------------------------------------------------------------------------------------------	   
+//	--------------------------------------------------------------------------------------------
+// 	CREATE message and ADD to an event
+//	--------------------------------------------------------------------------------------------	   
 	public Message createMessage(Message createMessage) {
 		return messageRepository.save(createMessage);
 	}
@@ -111,12 +111,7 @@ public class EventService {
 	public Message findCommentById(Long comment_id) {
 		return messageRepository.findById(comment_id).orElse(null);
 	}
-////  -----------------------------------------------------------------------------------------
-////  FIND comment by ID and order it by created at
-////  -----------------------------------------------------------------------------------------
-//	public List <Message> findAllByOrderByCreatedAt() {
-//		return messageRepository.findAllByOrderByCreatedAtAsc();
-//	}
+
 //  -----------------------------------------------------------------------------------------
 //  ADD message to an event
 //  -----------------------------------------------------------------------------------------

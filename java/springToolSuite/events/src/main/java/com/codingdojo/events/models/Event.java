@@ -14,11 +14,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -33,14 +34,15 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Size(min = 2, message="Enter event name")
+	@Size(min = 2, message="Enter an event name")
 	private String name; 
 	
-	@FutureOrPresent
+	@NotNull(message="Enter a date")
+	@FutureOrPresent(message="Enter a present or future date")
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date date;
 	
-	@Size(min = 2, message="City must be more than 2 characters")
+	@Size(min = 1, message="Enter a city")
 	private String city;
 	
 	private String state; 
@@ -55,6 +57,7 @@ public class Event {
 //	Relationships
 //----------------------------------------------------------------
 	@OneToMany(mappedBy="event", fetch = FetchType.LAZY)
+	@OrderBy("createdAt desc")
 	private List<Message> messages;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

@@ -54,15 +54,15 @@ public class UserController {
 // POST route for CREATING a user
 // --------------------------------------------------------------------------------------------
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session,
-			RedirectAttributes attribute) {
+	public String registerUser(Model model, @Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session, RedirectAttributes attribute) {
+		model.addAttribute("states", this.states);
 		if (result.hasErrors()) {
 			return "/events/authentication.jsp";
 		} else if (userService.checkUser(user.getEmail())) {
-			attribute.addFlashAttribute("error", "User already exists");
+			attribute.addFlashAttribute("registrationError", "User already exists");
 			return "redirect:/";
 		} else if (!user.getPassword().equals(user.getPasswordConfirmation())) {
-			attribute.addFlashAttribute("error", "Passwords do not match");
+			attribute.addFlashAttribute("registrationError", "Passwords do not match");
 			return "redirect:/";
 		} else {
 			User new_user = userService.registerUser(user);
@@ -84,15 +84,15 @@ public class UserController {
 	public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model,
 			HttpSession session, RedirectAttributes attribute) {
 		if (email.length() < 1) {
-			attribute.addFlashAttribute("error", "Must enter an email");
+			attribute.addFlashAttribute("loginError", "Must enter an email");
 			return "redirect:/";
 		} else if (password.length() < 1) {
-			attribute.addFlashAttribute("error", "Must enter a password");
+			attribute.addFlashAttribute("loginError", "Must enter a password");
 			return "redirect:/";
 		} else if (userService.authenticateUser(email, password)) {
 			User user = userService.findByEmail(email);
 			if (user == null) {
-				attribute.addFlashAttribute("error", "User does not exist");
+				attribute.addFlashAttribute("loginError", "User does not exist");
 			} else {
 				System.out.println("INSIDE SESSION SETTING ROUTE");
 				session.setAttribute("userId", user.getId());
@@ -100,7 +100,7 @@ public class UserController {
 				return "redirect:/events";
 			}
 		} else {
-			attribute.addFlashAttribute("error", "Invalid Password");
+			attribute.addFlashAttribute("loginError", "Invalid Password");
 		}
 		return "redirect:/";
 	}

@@ -17,6 +17,8 @@
 		<div class="register">
 	    	<h1 class="display-4 text-center text-success">Register</h1>
 	    
+	    	<p class="text-danger"><c:out value="${registrationError}" /></p>
+	    	
 		    <p class="text-danger"><form:errors path="user.*"/></p>
 		    
 		    <form:form method="POST" action="/registration" modelAttribute="user">
@@ -57,9 +59,9 @@
 	    </div>
 	    
 	    <div class="login">
-		    <h1 class="display-4 text-center text-warning">Login</h1>
+		    <h1 class="display-4 text-center text-primary">Login</h1>
 		    
-		    <p class="text-danger"><c:out value="${error}" /></p>
+		    <p class="text-danger"><c:out value="${loginError}" /></p>
 		    
 		    <form method="post" action="/login">
 		        <p>
@@ -70,7 +72,7 @@
 		            <label class="col-sm-4 col-form-label" for="password">Password</label>
 		            <input class="form-control col-sm-6" type="password" id="password" name="password"/>
 		        </p>
-		        <input class="btn btn-outline-warning mt-3" type="submit" value="Login"/>
+		        <input class="btn btn-outline-primary mt-3" type="submit" value="Login"/>
 		    </form>
 	    </div>
     </div>

@@ -28,6 +28,7 @@ public class EventController {
 //-------------------------------------------------------------------------------------------------------
 	private final EventService eventService;
 	private final UserService userService;
+
 	// ----------------------------------------------------------------------------------------
 	// Constructors
 	// ----------------------------------------------------------------------------------------
@@ -67,6 +68,18 @@ public class EventController {
 		}
 	}
 
+// -------------------------------------------------------------------------------------------------------
+// POST route for CREATING a new comment
+// -------------------------------------------------------------------------------------------------------
+	@PostMapping(value = "/comment/create")
+	public String createComment(@Valid @ModelAttribute("comment") Message message, BindingResult result, Model model, HttpSession session) {
+		Long userId = (Long) session.getAttribute("userId");
+		User user = eventService.findUserById(userId);
+		model.addAttribute("user", user);
+		message = eventService.createMessage(message);
+		return "redirect:/events/" + message.getEvent().getId();
+	}
+
 // -----------------------------------------------------------------------------------------------------
 // GET route for READING home page after user successfully login AND READING in and out of state events
 // -----------------------------------------------------------------------------------------------------
@@ -88,9 +101,13 @@ public class EventController {
 // GET route for READING one event by ID
 //------------------------------------------------------------------------------------------------------
 	@GetMapping("/events/{event_id}")
-	public String showEvent(Model model, @PathVariable("event_id") Long event_id, @ModelAttribute("comment") Message comment) {
+	public String showEvent(HttpSession session, Model model, @PathVariable("event_id") Long event_id,
+			@ModelAttribute("comment") Message comment) {
 		Event event = eventService.findEventById(event_id);
 		model.addAttribute("event", event);
+		Long userId = (Long) session.getAttribute("userId");
+		User user = eventService.findUserById(userId);
+		model.addAttribute("user", user);
 		return "/events/readOne.jsp";
 	}
 
@@ -129,6 +146,20 @@ public class EventController {
 		return "redirect:/events";
 	}
 
+//------------------------------------------------------------------------------------------------------
+// POST route for DELETING a comment by ID
+//------------------------------------------------------------------------------------------------------
+	@RequestMapping("/comment/{comment_id}/{event_id}/delete")
+	public String deleteComment(HttpSession session, @PathVariable("comment_id") Long comment_id, @PathVariable("event_id") Long event_id) {
+		if (session.getAttribute("userId").equals(eventService.findCommentById(comment_id).getUser().getId())) {
+			eventService.deleteComment(comment_id);
+			return "redirect:/events/" + event_id;
+		}
+		else {
+			return "redirect:/events/" + event_id;
+		}
+	}
+
 // -----------------------------------------------------------------------------------------------------
 // GET route for ADDING an attendee to Event (join button)
 // -----------------------------------------------------------------------------------------------------
@@ -142,6 +173,7 @@ public class EventController {
 		eventService.updateUser(attendee);
 		return "redirect:/events";
 	}
+
 // -----------------------------------------------------------------------------------------------------
 // GET route for REMOVING an Attendee from an vent (cancel button)
 // -----------------------------------------------------------------------------------------------------

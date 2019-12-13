@@ -7,4 +7,8 @@ import com.codingdojo.events.models.Message;
 
 @Repository
 public interface MessageRepository extends CrudRepository<Message, Long>{
+//--------------------------------------------------------------------------------------------
+// FIND all comments and order by created at  
+//--------------------------------------------------------------------------------------------
+//	List<Message> findAllByOrderByCreatedAtAsc();
 }

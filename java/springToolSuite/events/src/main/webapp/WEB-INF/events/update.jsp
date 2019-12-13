@@ -10,6 +10,7 @@
 	<meta charset="UTF-8">
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="/css/update.css" rel="stylesheet" type="text/css"/>
 	
 	<title>Update Event</title>
 </head>
@@ -17,12 +18,11 @@
 	<div class="container">
 		<a class="btn btn-outline-secondary mt-5" href="/events">Home</a>
 				
-		<a class="btn btn-outline-primary float-right mt-5" href="/logout">Logout</a>
+		<a class="btn btn-outline-dark float-right mt-5" href="/logout">Logout</a>
 		
-		<h1 class="display-4 text-center text-warning"><c:out value="${event.name}"/></h1>
+		<h1 class="display-4 text-center text-warning">Edit <c:out value="${event.name}"/></h1>
 		
 		<div class="editEvent">
-			<h3 class="lead text-danger">Edit Event</h3>
 			
 			<p class="text-danger"><form:errors path="event.*"/></p>
 			
@@ -32,21 +32,21 @@
 				<form:hidden path="attendees"/>
 				
 				<p>
-		            <form:label class="col-sm-2 col-form-label" path="name">Event Name:</form:label>
-		            <form:input class="form-control col-sm-6" type="text" path="name"/>
+		            <form:label class="col-sm-2 col-form-label lead" path="name">Event Name:</form:label>
+		            <form:input class="form-control col-sm-8" type="text" path="name"/>
 		        </p>
 		        
 		        <p>
-		        	<form:label class="col-sm-2 col-form-label" path="date">Date:</form:label>
-		        	<form:input class="form-control col-sm-6" type="date" path="date"/>
+		        	<form:label class="col-sm-2 col-form-label lead" path="date">Date:</form:label>
+		        	<form:input class="form-control col-sm-8" type="date" path="date"/>
 		        <p>
 		        
-		            <form:label class="col-sm-2 col-form-label" path="city">Location:</form:label>
-		            <form:input class="form-control col-sm-6" type="text" path="city"/>
+		            <form:label class="col-sm-2 col-form-label lead" path="city">City:</form:label>
+		            <form:input class="form-control col-sm-8" type="text" path="city"/>
 		        </p>
 		        
 		        <p>
-		            <form:label class="col-sm-1 col-form-label" path="state">State:</form:label>
+		            <form:label class="col-sm-1 col-form-label lead" path="state">State:</form:label>
 		            <form:select path="state">
 	        			<c:forEach items="${states}" var="state">
 	            		<form:option value="${state}">${state}</form:option>

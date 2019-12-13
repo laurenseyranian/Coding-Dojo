@@ -14,7 +14,7 @@
 </head>
 <body>
  	<div class="container">
-		<a class="btn btn-outline-primary mt-5" href="/logout">Logout</a>
+		<a class="btn btn-outline-dark mt-5" href="/logout">Logout</a>
 		
 		<h1 class="display-4 text-warning text-center mb-4">Welcome, <c:out value="${user.first_name}"/>!</h1>
 		
@@ -23,21 +23,21 @@
 			<table class="table">
 					<thead class="thead-dark">
 						<tr>
-							<th scope="col">Name</th>
-							<th scope="col">Date</th>
-							<th scope="col">Location</th>
-							<th scope="col">Host</th>
-							<th scope="col">Action</th>
+							<th scope="col" class="lead">Name</th>
+							<th scope="col" class="lead">Date</th>
+							<th scope="col" class="lead">City</th>
+							<th scope="col" class="lead">Host</th>
+							<th scope="col" class="lead">Action</th>
 						</tr>
 					</thead>
 	
 					<tbody>
 						<c:forEach items="${eventsInState}" var="event">
 							<tr>
-								<td><a href="/events/${event.id}"><c:out value="${event.name}"/></a></td>
-								<td><c:out value="${event.date}"/></td>
-								<td><c:out value="${event.city}"/></td>
-								<td><c:out value="${event.host.first_name}"/></td>
+								<td class="lead"><a href="/events/${event.id}"><c:out value="${event.name}"/></a></td>
+								<td class="lead"><fmt:formatDate pattern ="MMMM dd, yyyy" value ="${event.date}"/></td>
+								<td class="lead"><c:out value="${event.city}"/></td>
+								<td class="lead"><c:out value="${event.host.first_name}"/></td>
 								<td>
 						      		<c:choose>
 						      			<c:when test="${event.host.id==user.id }">
@@ -48,7 +48,7 @@
 						      				<c:choose>
 						      					<c:when test="${event.attendees.contains(user) }">
 				
-						      						<span class="text-warning">Joined!<a class="btn btn-outline-danger ml-2" href="/event/${event.id}/cancel">Cancel</a></span>
+						      						<span class="text-warning lead">Joined!<a class="btn btn-outline-danger ml-2" href="/event/${event.id}/cancel">Cancel</a></span>
 						      					</c:when>
 						      					<c:otherwise>
 						      						<a class="btn btn-outline-success" href="/event/${event.id}/join">Join</a>
@@ -69,23 +69,23 @@
 			<table class="table">
 					<thead class="thead-dark">
 						<tr>
-							<th scope="col">Name</th>
-							<th scope="col">Date</th>
-							<th scope="col">Location</th>
-							<th scope="col">State</th>
-							<th scope="col">Host</th>
-							<th scope="col">Action</th>
+							<th scope="col" class="lead">Name</th>
+							<th scope="col" class="lead">Date</th>
+							<th scope="col" class="lead">City</th>
+							<th scope="col" class="lead">State</th>
+							<th scope="col" class="lead">Host</th>
+							<th scope="col" class="lead">Action</th>
 						</tr>
 					</thead>
 	
 					<tbody>
 						<c:forEach items="${eventsOutOfState}" var="event">
 							<tr>
-								<td><a href="/events/${event.id}"><c:out value="${event.name}"/></a></td>
-								<td><fmt:formatDate pattern ="MMMM dd, yyyy" value ="${event.date}"/></td>
-								<td><c:out value="${event.city}"/></td>
-								<td><c:out value="${event.state}"/></td>
-								<td><c:out value="${event.host.first_name}"/></td>
+								<td class="lead"><a href="/events/${event.id}"><c:out value="${event.name}"/></a></td>
+								<td class="lead"><fmt:formatDate pattern ="MMMM dd, yyyy" value ="${event.date}"/></td>
+								<td class="lead"><c:out value="${event.city}"/></td>
+								<td class="lead"><c:out value="${event.state}"/></td>
+								<td class="lead"><c:out value="${event.host.first_name}"/></td>
 								<td>
 									<c:choose>
 						      			<c:when test="${event.host.id==user.id }">
@@ -95,7 +95,7 @@
 			      						<c:otherwise>
 				      						<c:choose>
 					      						<c:when test="${event.attendees.contains(user)  }">
-					      							<span class="text-warning">Joined!<a class="btn btn-outline-danger ml-2" href="/event/${event.id}/cancel">Cancel</a></span>
+					      							<span class="text-warning lead">Joined!<a class="btn btn-outline-danger ml-2" href="/event/${event.id}/cancel">Cancel</a></span>
 					      						</c:when>
 				      							<c:otherwise>
 				      								<a class="btn btn-outline-success" href="/event/${event.id }/join">Join</a>
@@ -113,23 +113,21 @@
 			
 			<h3 class="display-4 text-center text-success mt-5">Create an Event</h3>
 			
+			<p class="text-danger"><form:errors path="event.*"/></p>
 			<form:form action="/event/create" method="post" modelAttribute="event">
 			<form:hidden path="host" value="${user.id}"/>
 				<p>
 					<form:label path="name" class="lead col-form-label">Event Name: </form:label>
-					<form:errors path="name"/>
 					<form:input path="name" type="text" class="form-control"/>
 				</p>
 				
 				<p>
 	        		<form:label path="date" class="lead col-form-label">Date:</form:label>
-	        		<form:errors path="date"/>
 	        		<form:input path="date" type="date" class="form-control"/>
 	        	<p>
 	        	
 	        	<p>
-					<form:label path="city" class="lead col-form-label">Location: </form:label>
-					<form:errors path="city"/>
+					<form:label path="city" class="lead col-form-label">City: </form:label>
 					<form:input path="city" type="text" class="form-control"/>
 				</p>
 				
